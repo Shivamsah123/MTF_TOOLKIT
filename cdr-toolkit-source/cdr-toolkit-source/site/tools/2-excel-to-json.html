@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excel to JSON converter</title>
+<style>
+:root{--bg:#f2f5f7;--panel:#fff;--ink:#14202b;--mute:#5b6b79;--line:#d5dde3;--accent:#0b6e99;--accent-ink:#fff;--ok:#1b7a3d;--err:#b3261e;color-scheme:light}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 16px 48px}
+main{max-width:1100px;margin:0 auto}
+h1{font-size:1.6rem;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--mute);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.panel h2{font-size:1rem;margin:0 0 12px}
+.drop{display:block;border:2px dashed var(--line);border-radius:8px;padding:26px 14px;text-align:center;cursor:pointer;color:var(--mute)}
+.drop:hover,.drop.over,.drop:focus-within{border-color:var(--accent);color:var(--ink)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.drop strong{display:block;color:var(--ink)}
+.file{margin:10px 0 0;font-size:.9rem;color:var(--mute);word-break:break-all}
+.field{display:block;margin:12px 0 0;font-size:.9rem}
+.field span{display:block;margin-bottom:4px;color:var(--mute)}
+select,input[type=text]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.check{display:flex;gap:8px;align-items:center;margin-top:14px;font-size:.9rem}
+.sep{border:0;border-top:1px solid var(--line);margin:16px 0 4px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.bar .stat{flex:1;min-width:200px;font-size:.9rem;color:var(--mute)}
+button{font:inherit;padding:9px 16px;border-radius:6px;border:1px solid var(--accent);cursor:pointer;background:var(--accent);color:var(--accent-ink);font-weight:600}
+button.alt{background:transparent;color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.done{background:var(--ok);border-color:var(--ok);color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+textarea{width:100%;min-height:440px;resize:vertical;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);padding:12px;font:13px/1.45 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}
+.msg{min-height:1.4em;margin:10px 0 0;font-size:.9rem}
+.msg.err{color:var(--err)}
+.hint{font-size:.85rem;color:var(--mute);margin:18px 0 0}
+</style>
+<style>html,body{background:#fff!important;color-scheme:light}html{overflow-y:hidden!important}</style><script>(function(){function s(){var b=document.body,c=getComputedStyle(b);var h=b.offsetHeight+parseFloat(c.marginTop||0)+parseFloat(c.marginBottom||0);try{parent.postMessage({cdrHeight:Math.ceil(h)+2},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement);setInterval(s,400)})()</script></head>
+<body>
+<main>
+  <h1>Excel to JSON converter</h1>
+  <p class="sub">Works offline. Your file is read in this browser and never uploaded anywhere.</p>
+
+  <div class="grid">
+    <section class="panel" aria-label="Settings">
+      <h2>1. Choose a file</h2>
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept=".xlsx,.xlsm,.csv">
+        <strong>Drop an Excel or CSV file here</strong>
+        or click to browse (.xlsx, .csv)
+      </label>
+      <p class="file" id="fname"></p>
+      <p class="msg" id="msg" role="status"></p>
+
+      <hr class="sep">
+      <h2 style="margin-top:14px">2. Map the columns</h2>
+      <label class="field" id="sheetWrap" hidden><span>Sheet</span><select id="sheet"></select></label>
+      <label class="field"><span>lead_id comes from (required)</span><select id="cLead"></select></label>
+      <label class="field"><span>call_id comes from (required)</span><select id="cCall"></select></label>
+      <label class="field"><span>disposition (required, same value for every record)</span><input type="text" id="disp" value="Contacted"></label>
+      <label class="field"><span>sub_disposition comes from (optional)</span><select id="cSub"></select></label>
+      <label class="field"><span>summary comes from Call_description (optional)</span><select id="cDesc"></select></label>
+      <label class="check"><input type="checkbox" id="empty"> Include rows with an empty sub_disposition</label>
+    </section>
+
+    <section class="panel" aria-label="Result">
+      <h2>3. Copy or download the JSON</h2>
+      <div class="bar">
+        <div class="stat" id="stat">No file loaded yet.</div>
+        <button id="copy" disabled>Copy JSON</button>
+        <button id="dl" class="alt" disabled>Download .json</button>
+      </div>
+      <textarea id="out" readonly spellcheck="false" aria-label="JSON output" placeholder="Converted JSON will appear here."></textarea>
+      <p class="hint">Rows with a missing lead_id or call_id are always skipped, and repeated Call IDs are kept only once.</p>
+    </section>
+  </div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const ALIASES = {
+  lead: ['record_id','record id','recordid','lead_id','lead id'],
+  call: ['call_id','call id','callid'],
+  sub:  ['remark','remarks','sub_disposition','sub disposition'],
+  desc: ['call_description','call description','calldescription','summary']
+};
+let sheets = [];      // {name, header, body}
+let baseName = 'output';
+let current = [];
+
+/* ---------- xlsx reader (no libraries) ---------- */
+async function unzip(buf){
+  const dv = new DataView(buf), u8 = new Uint8Array(buf);
+  let e = u8.length - 22;
+  while(e >= 0 && dv.getUint32(e,true) !== 0x06054b50) e--;
+  if(e < 0) throw new Error('This does not look like a valid .xlsx file.');
+  const n = dv.getUint16(e+10,true);
+  let p = dv.getUint32(e+16,true);
+  const files = {};
+  for(let i=0;i<n;i++){
+    const method = dv.getUint16(p+10,true), csize = dv.getUint32(p+20,true);
+    const nl = dv.getUint16(p+28,true), el = dv.getUint16(p+30,true), cl = dv.getUint16(p+32,true);
+    const off = dv.getUint32(p+42,true);
+    files[new TextDecoder().decode(u8.subarray(p+46,p+46+nl))] = {method,csize,off};
+    p += 46+nl+el+cl;
+  }
+  return async name => {
+    const f = files[name]; if(!f) return null;
+    const start = f.off + 30 + dv.getUint16(f.off+26,true) + dv.getUint16(f.off+28,true);
+    const data = u8.subarray(start, start+f.csize);
+    if(f.method === 0) return new TextDecoder().decode(data);
+    const ds = new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    return await new Response(ds).text();
+  };
+}
+const xml = s => new DOMParser().parseFromString(s,'application/xml');
+const colIndex = ref => { let n=0; for(const ch of ref.replace(/[0-9]/g,'')) n = n*26 + ch.charCodeAt(0)-64; return n-1; };
+const textOf = el => [...el.getElementsByTagName('t')].filter(t => t.parentNode.localName !== 'rPh').map(t => t.textContent).join('');
+
+async function readXlsx(buf){
+  const read = await unzip(buf);
+  const wb = await read('xl/workbook.xml');
+  if(!wb) throw new Error('Workbook not found in this file.');
+  const rels = xml(await read('xl/_rels/workbook.xml.rels'));
+  const relMap = {};
+  for(const r of rels.getElementsByTagName('Relationship')){
+    let t = r.getAttribute('Target');
+    relMap[r.getAttribute('Id')] = t.startsWith('/') ? t.slice(1) : 'xl/' + t;
+  }
+  const ssXml = await read('xl/sharedStrings.xml');
+  const ss = ssXml ? [...xml(ssXml).getElementsByTagName('si')].map(textOf) : [];
+  const RNS = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+  const out = [];
+  for(const s of xml(wb).getElementsByTagName('sheet')){
+    const path = relMap[s.getAttributeNS(RNS,'id') || s.getAttribute('r:id')];
+    const sx = path && await read(path);
+    if(!sx) continue;
+    const rows = [];
+    for(const row of xml(sx).getElementsByTagName('row')){
+      const arr = []; let next = 0;
+      for(const c of row.getElementsByTagName('c')){
+        const ref = c.getAttribute('r'), i = ref ? colIndex(ref) : next;
+        next = i + 1;
+        const t = c.getAttribute('t'), v = c.getElementsByTagName('v')[0];
+        let val = '';
+        if(t === 'inlineStr') val = textOf(c);
+        else if(v){ val = t === 's' ? (ss[+v.textContent] ?? '') : v.textContent; }
+        arr[i] = val;
+      }
+      rows.push(arr);
+    }
+    out.push({name: s.getAttribute('name'), rows});
+  }
+  return out;
+}
+
+/* ---------- csv reader ---------- */
+function readCsv(text){
+  text = text.replace(/^\uFEFF/,'');
+  const rows = []; let row = [], cur = '', q = false;
+  for(let i=0;i<text.length;i++){
+    const ch = text[i];
+    if(q){
+      if(ch === '"'){ if(text[i+1] === '"'){ cur += '"'; i++; } else q = false; }
+      else cur += ch;
+    } else if(ch === '"') q = true;
+    else if(ch === ','){ row.push(cur); cur = ''; }
+    else if(ch === '\n' || ch === '\r'){
+      if(ch === '\r' && text[i+1] === '\n') i++;
+      row.push(cur); rows.push(row); row = []; cur = '';
+    } else cur += ch;
+  }
+  if(cur !== '' || row.length){ row.push(cur); rows.push(row); }
+  return [{name:'CSV', rows}];
+}
+
+/* ---------- UI ---------- */
+function setMsg(text, isErr){ const m = $('#msg'); m.textContent = text; m.className = 'msg' + (isErr ? ' err' : ''); }
+
+function prepare(raw){
+  return raw.map(s => {
+    const idx = s.rows.findIndex(r => r.filter(x => String(x ?? '').trim() !== '').length >= 2);
+    if(idx < 0) return {name:s.name, header:[], body:[]};
+    return {name:s.name, header:s.rows[idx].map(h => String(h ?? '').trim()), body:s.rows.slice(idx+1)};
+  }).filter(s => s.header.length);
+}
+
+function fillSelects(){
+  const sh = sheets[+$('#sheet').value];
+  const opts = '<option value="-1">(none)</option>' + sh.header.map((h,i) => `<option value="${i}">${h.replace(/</g,'&lt;') || 'Column ' + (i+1)}</option>`).join('');
+  for(const [id,key] of [['#cLead','lead'],['#cCall','call'],['#cSub','sub'],['#cDesc','desc']]){
+    $(id).innerHTML = opts;
+    const f = sh.header.findIndex(h => ALIASES[key].includes(h.toLowerCase()));
+    $(id).value = f;
+  }
+}
+
+function convert(){
+  const sh = sheets[+$('#sheet').value]; if(!sh) return;
+  const iL = +$('#cLead').value, iC = +$('#cCall').value, iS = +$('#cSub').value, iD = +$('#cDesc').value;
+  const disp = $('#disp').value, inclEmpty = $('#empty').checked;
+  if(iL < 0 || iC < 0 || !disp.trim()){
+    current = []; $('#out').value = ''; $('#copy').disabled = $('#dl').disabled = true;
+    $('#stat').textContent = 'lead_id, call_id and disposition are required.'; return;
+  }
+  const seen = new Set(); const res = [];
+  let noId = 0, noRemark = 0, dup = 0;
+  const val = x => String(x ?? '').trim();
+  for(const r of sh.body){
+    const lead = val(r[iL]), call = val(r[iC]).replace(/['\u2018\u2019]/g, '').trim(), sub = iS >= 0 ? val(r[iS]) : '', desc = iD >= 0 ? val(r[iD]) : '';
+    if(r.every(x => val(x) === '')) continue;   // fully blank row
+    if(!lead || !call){ noId++; continue; }
+    if(iS >= 0 && !sub && !inclEmpty){ noRemark++; continue; }
+    if(seen.has(call)){ dup++; continue; }
+    seen.add(call);
+    const num = Number(lead);
+    const rec = {lead_id: Number.isFinite(num) ? num : lead, call_id: call};
+    if(iS >= 0) rec.sub_disposition = sub;
+    rec.disposition = disp;
+    if(iD >= 0) rec.summary = desc;
+    res.push(rec);
+  }
+  current = res;
+  $('#out').value = JSON.stringify(res, null, 2);
+  $('#copy').disabled = $('#dl').disabled = res.length === 0;
+  $('#stat').textContent = `${res.length.toLocaleString()} records converted. Skipped: ${noRemark.toLocaleString()} without sub_disposition, ${noId.toLocaleString()} without IDs, ${dup.toLocaleString()} duplicate call IDs.`;
+}
+
+async function handle(file){
+  if(!file) return;
+  $('#fname').textContent = file.name; setMsg('Reading file...');
+  $('#copy').disabled = $('#dl').disabled = true;
+  try{
+    baseName = file.name.replace(/\.[^.]+$/,'');
+    const buf = await file.arrayBuffer();
+    const raw = /\.csv$/i.test(file.name) ? readCsv(new TextDecoder().decode(buf)) : await readXlsx(buf);
+    sheets = prepare(raw);
+    if(!sheets.length) throw new Error('No data found in this file.');
+    $('#sheet').innerHTML = sheets.map((s,i) => `<option value="${i}">${s.name.replace(/</g,'&lt;')} (${s.body.length.toLocaleString()} rows)</option>`).join('');
+    $('#sheetWrap').hidden = sheets.length < 2;
+    fillSelects(); convert(); setMsg('File loaded.');
+  }catch(err){
+    sheets = []; current = []; $('#out').value = '';
+    $('#stat').textContent = 'No file loaded yet.';
+    setMsg(err.message || 'Could not read this file.', true);
+  }
+}
+
+$('#file').addEventListener('change', e => handle(e.target.files[0]));
+const drop = $('#drop');
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => handle(e.dataTransfer.files[0]));
+$('#sheet').addEventListener('change', () => { fillSelects(); convert(); });
+['#cLead','#cCall','#cSub','#cDesc'].forEach(s => $(s).addEventListener('change', convert));
+$('#disp').addEventListener('input', convert);
+$('#empty').addEventListener('change', convert);
+
+$('#copy').addEventListener('click', async () => {
+  const btn = $('#copy'), text = $('#out').value;
+  try{ await navigator.clipboard.writeText(text); }
+  catch{ const o = $('#out'); o.select(); document.execCommand('copy'); o.setSelectionRange(0,0); }
+  btn.textContent = 'Copied'; btn.classList.add('done');
+  setTimeout(() => { btn.textContent = 'Copy JSON'; btn.classList.remove('done'); }, 1800);
+});
+$('#dl').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([$('#out').value], {type:'application/json'}));
+  a.download = baseName + '.json'; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+</script>
+</body>
+</html>

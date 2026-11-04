@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remark Adder</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{--bg:#f5f6f8;--card:#fff;--tx:#1b1f24;--mut:#6a7280;--bd:#dde1e7;--ac:#2563eb;--ok:#15803d;--warn:#b45309}
+  
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 16px}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:14px}
+  .card.off{opacity:.45;pointer-events:none}
+  .step{font-weight:600;margin-bottom:8px}
+  .step span{display:inline-block;background:var(--ac);color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:13px;margin-right:8px}
+  input[type=file]{width:100%;padding:10px;border:1px dashed var(--bd);border-radius:8px;background:transparent;color:var(--tx)}
+  textarea{width:100%;height:170px;padding:10px;border:1px solid var(--bd);border-radius:8px;background:transparent;color:var(--tx);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;resize:vertical}
+  button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .msg{font-size:14px;margin-top:10px;line-height:1.5}
+  .ok{color:var(--ok)} .warn{color:var(--warn)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btns button{margin-top:0}
+  .btns .b{display:flex;flex-direction:column;gap:6px}
+  .cnt{font-size:13px;color:var(--mut);padding-left:2px}
+  .hint{font-size:13px;color:var(--mut);margin-bottom:8px}
+  code{background:var(--bg);padding:1px 5px;border-radius:4px}
+</style>
+<style>html,body{background:#fff!important;color-scheme:light}html{overflow-y:hidden!important}</style><script>(function(){function s(){var b=document.body,c=getComputedStyle(b);var h=b.offsetHeight+parseFloat(c.marginTop||0)+parseFloat(c.marginBottom||0);try{parent.postMessage({cdrHeight:Math.ceil(h)+2},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement);setInterval(s,400)})()</script></head>
+<body>
+<div class="wrap">
+  <h1>Remark Adder</h1>
+  <div class="sub">CDR CSV → filter → Remark add → Excel (.xlsx)</div>
+
+  <div class="card" id="c1">
+    <div class="step"><span>1</span>Upload the CDR CSV file</div>
+    <div class="hint">Auto filter: <code>CAMPAIGN NAME</code> = MTF-CROSS SELL &nbsp;+&nbsp; <code>CRM SUB-DISPOSITION</code> = Interested / Connected to an executive</div>
+    <input type="file" id="file" accept=".csv">
+    <div class="msg" id="m1"></div>
+  </div>
+
+  <div class="card off" id="c2">
+    <div class="step"><span>2</span>Paste Record IDs and Remarks</div>
+    <div class="hint">Write the Remark on one line, then the <code>lead_id: 123</code> lines for that remark below it. Example:<br><code>Dropped During Conversation</code><br><code>lead_id: 211296</code><br><code>lead_id: 211666</code><br><code>Connected to an executive</code><br><code>lead_id: 193132</code><br>(<code>123 &lt;tab&gt; remark</code> format also works)</div>
+    <textarea id="pairs" placeholder="Dropped During Conversation&#10;lead_id: 211296&#10;lead_id: 211666&#10;&#10;Connected to an executive&#10;lead_id: 193132"></textarea>
+    <div class="msg" id="m2"></div>
+  </div>
+
+  <div class="card off" id="c3">
+    <div class="step"><span>3</span>Download Excel</div>
+    <div class="hint">File date (used in the file name):
+      <input type="date" id="fdate" style="padding:6px;border:1px solid var(--bd);border-radius:6px;background:transparent;color:var(--tx)"></div>
+    <div class="btns">
+      <div class="b"><button data-f="interested">⬇ Interested only</button><div class="cnt" id="cnt-interested">Count: —</div></div>
+      <div class="b"><button data-f="connected to an executive">⬇ Connected to an executive only</button><div class="cnt" id="cnt-connected to an executive">Count: —</div></div>
+      <div class="b"><button data-f="all">⬇ Download both files</button><div class="cnt" id="cnt-all">Count: —</div></div>
+    </div>
+    <div class="msg" id="m3"></div>
+  </div>
+</div>
+
+<script>
+const CAMPAIGN = 'mtf-cross sell';
+const SUBDISPS = ['interested','connected to an executive'];
+let filtered = [], headers = [], srcName = 'output';
+
+const norm = s => String(s == null ? '' : s).trim().toLowerCase().replace(/\s+/g,' ');
+const $ = id => document.getElementById(id);
+
+$('file').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if(!f) return;
+  srcName = f.name.replace(/\.csv$/i,'');
+  const r = new FileReader();
+  r.onload = ev => {
+    try{
+      const wb = XLSX.read(ev.target.result, {type:'string', raw:true});
+      const rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {defval:'', raw:true});
+      if(!rows.length) throw new Error('File is empty');
+      headers = Object.keys(rows[0]);
+      const need = ['CAMPAIGN NAME','CRM SUB-DISPOSITION','RECORD ID'];
+      const miss = need.filter(h => !headers.includes(h));
+      if(miss.length) throw new Error('Columns not found: ' + miss.join(', '));
+      const mtf = rows.filter(r => norm(r['CAMPAIGN NAME']) === CAMPAIGN);
+      filtered = mtf.filter(r => SUBDISPS.includes(norm(r['CRM SUB-DISPOSITION'])));
+      $('m1').innerHTML = `<span class="ok">✔ Total ${rows.length} rows → MTF-CROSS SELL: ${mtf.length} → Final (Interested / Connected to an executive): <b>${filtered.length}</b> rows</span>`;
+      if(!filtered.length){ $('m1').innerHTML += '<br><span class="warn">No rows matched.</span>'; return; }
+      $('c2').classList.remove('off'); $('c3').classList.remove('off');
+      updateMatch();
+    }catch(err){
+      $('m1').innerHTML = `<span class="warn">✖ ${err.message}</span>`;
+    }
+  };
+  r.readAsText(f, 'utf-8');
+});
+
+function parsePairs(){
+  // Format 1: heading line (remark) + neeche "lead_id: 123" lines
+  // Format 2: "123<tab/comma>remark"
+  const map = {};
+  let heading = '';
+  const add = (id, rem) => { if(map[id] && rem && !map[id].split(' | ').includes(rem)) map[id] += ' | ' + rem; else if(!map[id]) map[id] = rem; };
+  $('pairs').value.split(/\r?\n/).forEach(line => {
+    line = line.trim();
+    if(!line) return;
+    let m = line.match(/^(?:lead|record)[\s_]*id\s*[:=\-]\s*["']?(\d+)/i);
+    if(m){ add(m[1], heading); return; }
+    m = line.match(/^["']?(\d+)["']?\s*[\t,;]\s*(.+)$/);
+    if(m){ add(m[1], m[2].trim().replace(/^"(.*)"$/,'$1')); return; }
+    heading = line.replace(/[:\-]+$/,'').trim();
+  });
+  return map;
+}
+
+function updateMatch(){
+  updateCounts();
+  if(!filtered.length) return;
+  const map = parsePairs();
+  const ids = new Set(filtered.map(r => String(r['RECORD ID']).trim()));
+  const matched = [...ids].filter(i => map[i] !== undefined).length;
+  const extra = Object.keys(map).filter(i => !ids.has(i));
+  let t = `The filtered file has <b>${ids.size}</b> unique Record IDs. Remarks found: <b class="ok">${matched}</b>`;
+  if(Object.keys(map).length) t += `, without remark: <b>${ids.size-matched}</b>`;
+  if(extra.length) t += `<br><span class="warn">These IDs are not in the filtered file (ignored): ${extra.join(', ')}</span>`;
+  $('m2').innerHTML = t;
+}
+$('pairs').addEventListener('input', updateMatch);
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const KINDS = {
+  'interested': 'Interested',
+  'connected to an executive': 'Genuine_Connected_To_Executive'
+};
+
+(function(){ const d = new Date(); $('fdate').value = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); })();
+
+function datePart(){
+  const v = $('fdate').value;
+  if(!v){ const d = new Date(); return d.getDate()+'_'+MONTHS[d.getMonth()]; }
+  const [y,m,d] = v.split('-').map(Number);
+  return d+'_'+MONTHS[m-1];            // e.g. 2_Oct
+}
+
+// Remark column ke hisaab se rows nikalo
+function getRows(f, map){
+  const withRemark = filtered.map(r => {
+    const id = String(r['RECORD ID']).trim();
+    return {r, remark: map[id] !== undefined ? map[id] : ''};
+  });
+  if(f === 'all') return withRemark;   // MTF-CROSS SELL + Interested/Connected filter ki poori file + Remark column
+  return withRemark.filter(x => norm(x.remark) === f);              // Remark = Interested / Connected to an executive
+}
+
+function updateCounts(){
+  const map = parsePairs();
+  ['interested','connected to an executive','all'].forEach(k => {
+    const n = filtered.length ? getRows(k, map).length : 0;
+    $('cnt-' + k).textContent = 'Count: ' + n;
+  });
+}
+
+function buildFile(rows, name){
+  const out = rows.map(x => {
+    const o = {};
+    headers.forEach(h => o[h] = x.r[h] == null ? '' : String(x.r[h]));
+    o['Remark'] = x.remark;
+    return o;
+  });
+  const ws = XLSX.utils.json_to_sheet(out, {header:[...headers,'Remark']});
+  ws['!cols'] = [...headers,'Remark'].map(h => ({wch: Math.min(40, Math.max(12, h.length+2))}));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  XLSX.writeFile(wb, name);
+  return out.length;
+}
+
+document.querySelectorAll('.btns button').forEach(btn => btn.addEventListener('click', () => {
+  const f = btn.dataset.f;
+  const map = parsePairs();
+  const rows = getRows(f, map);
+  if(!rows.length){ $('m3').innerHTML = '<span class="warn">No rows for this option (no Remark matched).</span>'; return; }
+  const name = f === 'all'
+    ? datePart() + '_MTF_Updated_Disposition.xlsx'
+    : datePart() + '_MTF_' + KINDS[f] + '.xlsx';
+  const n = buildFile(rows, name);
+  $('m3').innerHTML = `<span class="ok">✔ ${name} downloaded (${n} rows)</span>`;
+}));
+</script>
+</body>
+</html>

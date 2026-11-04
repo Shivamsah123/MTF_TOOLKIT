@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download Answer Null CDR</title>
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--text:#1a1f2b;--muted:#667085;--line:#dfe3ea;--accent:#2563eb;--accent2:#1d4ed8;--accent-t:#fff;--soft:#eef3ff;--ok:#12803c;--err:#c62828}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding:28px 16px 48px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.logo{width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--accent-t);display:grid;place-items:center;font-size:22px}
+h1{font-size:1.35rem;margin:0}
+.sub{margin:0;color:var(--muted);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.step{display:flex;align-items:center;gap:8px;font-weight:600;margin-bottom:12px}
+.num{width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:.8rem;display:grid;place-items:center}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:30px 12px;text-align:center;cursor:pointer;color:var(--muted);transition:.15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--soft);color:var(--text)}
+.drop .big{font-size:1.9rem}
+.drop.loaded{border-style:solid;border-color:var(--ok);color:var(--text)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+label.f{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}
+input[type=text]:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin-top:8px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--accent);background:var(--soft)}
+.opt input{margin-top:4px}
+.opt b{display:block;font-size:.93rem}.opt span{font-size:.82rem;color:var(--muted)}
+button.go{width:100%;padding:14px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-t);font:inherit;font-weight:700;font-size:1rem;cursor:pointer}
+button.go:hover:not(:disabled){background:var(--accent2)}
+button.go:disabled{opacity:.4;cursor:not-allowed}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{background:var(--soft);border-radius:10px;padding:8px 12px;font-size:.82rem;color:var(--muted)}
+.chip b{display:block;font-size:1.1rem;color:var(--text)}
+.chip.last{background:var(--accent);color:var(--accent-t)}.chip.last b{color:var(--accent-t)}
+#msg{margin-top:12px;font-size:.92rem;white-space:pre-line}
+.ok{color:var(--ok)}.err{color:var(--err)}
+.tbl{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;font-size:.8rem;width:100%}
+td,th{border:1px solid var(--line);padding:5px 9px;white-space:nowrap;text-align:left}
+th{background:var(--soft)}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:18px}
+</style>
+<style>html,body{background:#fff!important;color-scheme:light}html{overflow-y:hidden!important}</style><script>(function(){function s(){var b=document.body,c=getComputedStyle(b);var h=b.offsetHeight+parseFloat(c.marginTop||0)+parseFloat(c.marginBottom||0);try{parent.postMessage({cdrHeight:Math.ceil(h)+2},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement);setInterval(s,400)})()</script></head>
+<body>
+<div class="wrap">
+<header><div class="logo">📞</div><div><h1>Download Answer Null CDR</h1><p class="sub">Upload a CSV, apply filters, download XLSX</p></div></header>
+
+<div class="card">
+  <div class="step"><span class="num">1</span>Choose a file</div>
+  <div class="drop" id="drop"><div class="big">📂</div><div id="dtxt">Drop a CSV file here or click to browse</div></div>
+  <input type="file" id="file" accept=".csv,text/csv" hidden>
+</div>
+
+<div class="card">
+  <div class="step"><span class="num">2</span>Filters</div>
+  <div class="grid">
+    <div><label class="f" for="camp">CAMPAIGN NAME</label><input type="text" id="camp" value="MTF-CROSS SELL"></div>
+    <div><label class="f" for="gw">GATEWAY DISPOSITION</label><input type="text" id="gw" value="ANSWER"></div>
+  </div>
+  <label class="f" style="margin-top:14px">CRM DISPOSITION</label>
+  <label class="opt"><input type="radio" name="crm" value="filter" checked><div><b>Keep null rows only</b><span>Only rows where CRM DISPOSITION is empty</span></div></label>
+  <label class="opt"><input type="radio" name="crm" value="clear"><div><b>Clear the column</b><span>Keep all rows, remove CRM DISPOSITION values</span></div></label>
+  <label class="opt"><input type="radio" name="crm" value="none"><div><b>Do nothing</b><span>CRM DISPOSITION stays as it is</span></div></label>
+</div>
+
+<div class="card">
+  <div class="step"><span class="num">3</span>Convert</div>
+  <button class="go" id="go" disabled>Convert &amp; Download XLSX</button>
+  <div class="flow" id="flow"></div>
+  <div id="msg"></div>
+  <div class="tbl" id="prev"></div>
+</div>
+<footer>Runs fully offline. Your data is never uploaded.</footer>
+</div>
+
+<script>
+// ---------- CORE (no DOM) ----------
+function parseCSV(t){
+  if(t.charCodeAt(0)===0xFEFF)t=t.slice(1);
+  const rows=[];let row=[],f='',q=false,i=0,n=t.length;
+  while(i<n){
+    const c=t[i];
+    if(q){
+      if(c==='"'){if(t[i+1]==='"'){f+='"';i+=2;continue}q=false;i++;continue}
+      f+=c;i++;
+    }else{
+      if(c==='"'){q=true;i++}
+      else if(c===','){row.push(f);f='';i++}
+      else if(c==='\n'||c==='\r'){
+        if(c==='\r'&&t[i+1]==='\n')i++;
+        row.push(f);f='';rows.push(row);row=[];i++;
+      }else{f+=c;i++}
+    }
+  }
+  if(f!==''||row.length){row.push(f);rows.push(row)}
+  return rows;
+}
+const norm=v=>String(v==null?'':v).trim().toUpperCase().replace(/[_\-\s]+/g,' ');
+const isNull=v=>['','null','nan','none'].includes(String(v==null?'':v).trim().toLowerCase());
+
+function convertRows(rows,camp,gw,mode){
+  const h=rows[0].map(x=>x.trim());
+  const ci=h.indexOf('CAMPAIGN NAME'),gi=h.indexOf('GATEWAY DISPOSITION'),ri=h.indexOf('CRM DISPOSITION');
+  const miss=['CAMPAIGN NAME','GATEWAY DISPOSITION','CRM DISPOSITION'].filter(x=>!h.includes(x));
+  if(miss.length)throw new Error('These columns were not found in the file: '+miss.join(', '));
+  let d=rows.slice(1).filter(r=>r.length>1);
+  const steps=[['Total',d.length]];
+  if(camp.trim())d=d.filter(r=>norm(r[ci])===norm(camp));
+  steps.push(['Campaign',d.length]);
+  if(gw.trim())d=d.filter(r=>norm(r[gi])===norm(gw));
+  steps.push(['Gateway',d.length]);
+  if(mode==='filter')d=d.filter(r=>isNull(r[ri]));
+  else if(mode==='clear')d=d.map(r=>{const c=r.slice();c[ri]='';return c});
+  steps.push(['Final',d.length]);
+  return {header:h,data:d,steps};
+}
+
+// ---------- minimal XLSX writer (zip, stored) ----------
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function zip(files){
+  const enc=new TextEncoder(),parts=[],cd=[];let off=0;
+  const d=new Date(),dt=((d.getFullYear()-1980)<<9|(d.getMonth()+1)<<5|d.getDate())&0xFFFF,tm=(d.getHours()<<11|d.getMinutes()<<5|(d.getSeconds()>>1))&0xFFFF;
+  for(const [name,txt] of files){
+    const nb=enc.encode(name),db=enc.encode(txt),crc=crc32(db);
+    const lh=new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(8,0,true);
+    lh.setUint16(10,tm,true);lh.setUint16(12,dt,true);lh.setUint32(14,crc,true);lh.setUint32(18,db.length,true);lh.setUint32(22,db.length,true);lh.setUint16(26,nb.length,true);lh.setUint16(28,0,true);
+    parts.push(new Uint8Array(lh.buffer),nb,db);
+    const ch=new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(10,0,true);
+    ch.setUint16(12,tm,true);ch.setUint16(14,dt,true);ch.setUint32(16,crc,true);ch.setUint32(20,db.length,true);ch.setUint32(24,db.length,true);ch.setUint16(28,nb.length,true);ch.setUint32(42,off,true);
+    cd.push(new Uint8Array(ch.buffer),nb);
+    off+=30+nb.length+db.length;
+  }
+  let cdl=0;for(const p of cd)cdl+=p.length;
+  const end=new DataView(new ArrayBuffer(22));
+  end.setUint32(0,0x06054b50,true);end.setUint16(8,files.length,true);end.setUint16(10,files.length,true);end.setUint32(12,cdl,true);end.setUint32(16,off,true);
+  return new Blob([...parts,...cd,new Uint8Array(end.buffer)],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+const esc=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function colL(i){let s='';i++;while(i>0){const m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=(i-m-1)/26}return s}
+function buildXlsx(header,data){
+  const cell=(v,r,c,st)=>'<c r="'+colL(c)+r+'" t="inlineStr"'+(st?' s="1"':'')+'><is><t xml:space="preserve">'+esc(v)+'</t></is></c>';
+  let x='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">';
+  x+='<sheetData><row r="1">'+header.map((h,i)=>cell(h,1,i,0)).join('')+'</row>';
+  data.forEach((r,ri)=>{
+    let s='<row r="'+(ri+2)+'">';
+    for(let c=0;c<header.length;c++){const v=r[c];if(v!==undefined&&v!=='')s+=cell(v,ri+2,c,0)}
+    x+=s+'</row>';
+  });
+  x+='</sheetData></worksheet>';
+  const NS='xmlns="http://schemas.openxmlformats.org/';
+  return zip([
+    ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8"?><Types '+NS+'package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+    ['_rels/.rels','<?xml version="1.0" encoding="UTF-8"?><Relationships '+NS+'package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+    ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8"?><workbook '+NS+'spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Filtered" sheetId="1" r:id="rId1"/></sheets></workbook>'],
+    ['xl/_rels/workbook.xml.rels','<?xml version="1.0" encoding="UTF-8"?><Relationships '+NS+'package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+    ['xl/styles.xml','<?xml version="1.0" encoding="UTF-8"?><styleSheet '+NS+'spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
+    ['xl/worksheets/sheet1.xml',x]
+  ]);
+}
+//--UI--
+const $=id=>document.getElementById(id);
+let rows=null,base='output';
+function say(t,c){const m=$('msg');m.textContent=t;m.className=c||''}
+function load(f){
+  if(!f)return;
+  if(!/\.csv$/i.test(f.name)){say('Only .csv files are supported. If you have an Excel file, save it as CSV first.','err');return}
+  base=f.name.replace(/\.[^.]+$/,'');say('Reading file...');
+  const r=new FileReader();
+  r.onload=e=>{
+    setTimeout(()=>{
+      try{
+        rows=parseCSV(e.target.result);
+        const h=rows[0].map(x=>x.trim());
+        const miss=['CAMPAIGN NAME','GATEWAY DISPOSITION','CRM DISPOSITION'].filter(x=>!h.includes(x));
+        if(miss.length)throw new Error('These columns were not found in the file: '+miss.join(', '));
+        $('drop').classList.add('loaded');$('dtxt').textContent='✔ '+f.name+'  ('+(rows.length-1).toLocaleString()+' rows, '+h.length+' columns)';
+        $('go').disabled=false;$('flow').innerHTML='';$('prev').innerHTML='';say('File is ready. Check the filters and click Convert.','ok');
+      }catch(err){rows=null;$('go').disabled=true;$('drop').classList.remove('loaded');say(err.message,'err')}
+    },30);
+  };
+  r.readAsText(f);
+}
+const drop=$('drop');
+drop.onclick=()=>$('file').click();
+$('file').onchange=e=>load(e.target.files[0]);
+drop.ondragover=e=>{e.preventDefault();drop.classList.add('over')};
+drop.ondragleave=()=>drop.classList.remove('over');
+drop.ondrop=e=>{e.preventDefault();drop.classList.remove('over');load(e.dataTransfer.files[0])};
+$('go').onclick=()=>{
+  if(!rows)return;
+  try{
+    const mode=document.querySelector('input[name=crm]:checked').value;
+    const res=convertRows(rows,$('camp').value,$('gw').value,mode);
+    $('flow').innerHTML=res.steps.map((s,i)=>'<div class="chip'+(i===3?' last':'')+'">'+s[0]+'<b>'+s[1].toLocaleString()+'</b></div>').join('');
+    if(!res.data.length){say('No rows left after filtering. Check the spelling of Campaign / Gateway.','err');$('prev').innerHTML='';return}
+    const cols=['CUSTOMER NAME','CAMPAIGN NAME','GATEWAY DISPOSITION','CRM DISPOSITION'].filter(c=>res.header.includes(c));
+    const t=document.createElement('table');const hr=t.insertRow();
+    cols.forEach(c=>{const th=document.createElement('th');th.textContent=c;hr.appendChild(th)});
+    res.data.slice(0,5).forEach(r=>{const tr=t.insertRow();cols.forEach(c=>{tr.insertCell().textContent=r[res.header.indexOf(c)]||''})});
+    $('prev').replaceChildren(t);
+    const blob=buildXlsx(res.header,res.data);
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=base+'_filtered.xlsx';
+    document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+    say('XLSX downloaded: '+base+'_filtered.xlsx ('+res.data.length.toLocaleString()+' rows)','ok');
+  }catch(err){say(err.message,'err')}
+};
+</script>
+</body>
+</html>

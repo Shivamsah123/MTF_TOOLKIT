@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sub-Disposition Pivot Converter</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1d2330;--muted:#667085;--line:#d9dde5;--accent:#1f6feb;--head:#ddebf7}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Arial,Helvetica,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:22px;margin:0 0 4px}
+p.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+#drop{border:2px dashed var(--line);border-radius:10px;padding:32px 16px;text-align:center;cursor:pointer}
+#drop.over{border-color:var(--accent);background:var(--head)}
+#drop b{color:var(--accent)}
+label{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
+select,input[type=text]{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--head)}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{font-weight:bold;background:var(--head)}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+button{padding:9px 14px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;font:inherit;cursor:pointer}
+button.alt{background:transparent;color:var(--accent)}
+#msg{color:var(--muted);margin:8px 0 0;min-height:20px}
+#msg.err{color:#d92d20}
+.hide{display:none}
+.tw{overflow-x:auto}
+</style>
+<style>html,body{background:#fff!important;color-scheme:light}html{overflow-y:hidden!important}</style><script>(function(){function s(){var b=document.body,c=getComputedStyle(b);var h=b.offsetHeight+parseFloat(c.marginTop||0)+parseFloat(c.marginBottom||0);try{parent.postMessage({cdrHeight:Math.ceil(h)+2},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement);setInterval(s,400)})()</script></head>
+<body>
+<main>
+<h1>Sub-Disposition Pivot Converter</h1>
+<p class="sub">Add a CSV or Excel (.xlsx) file, choose a campaign, and get a pivot table instantly. Your file never leaves your computer.</p>
+
+<div class="card">
+  <div id="drop"><b>Drag and drop a file here</b> or click to browse<br><span style="color:var(--muted)">.csv ya .xlsx</span></div>
+  <input type="file" id="file" accept=".csv,.xlsx" class="hide">
+  <div id="msg"></div>
+</div>
+
+<div class="card hide" id="opts">
+  <div class="row">
+    <div><label for="camp">Campaign filter</label><select id="camp"></select></div>
+    <div><label for="sub">Rows / Values column</label><select id="sub"></select></div>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <div><label for="campcol">Campaign column</label><select id="campcol"></select></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="card hide" id="out">
+  <div class="tw"><table id="tbl"></table></div>
+  <div class="btns">
+    <button id="bs">Download screenshot (PNG)</button>
+    <button id="bi" class="alt">Copy screenshot</button>
+    <button id="bx" class="alt">Download Excel (.xlsx)</button>
+    <button id="bc" class="alt">Download CSV</button>
+    <button id="bp" class="alt">Copy (paste into Excel)</button>
+  </div>
+</div>
+<div class="card hide" id="sum">
+  <h2 style="font-size:16px;margin:0 0 10px">Call Summary &amp; Connectivity</h2>
+  <div class="tw"><table id="stbl"></table></div>
+  <p id="snote" style="color:var(--muted);font-size:13px;margin:10px 0 0"></p>
+  <div class="btns">
+    <button id="ss">Download screenshot (PNG)</button>
+    <button id="si" class="alt">Copy screenshot</button>
+    <button id="sp" class="alt">Copy (paste into Excel)</button>
+  </div>
+</div>
+</main>
+<script>
+// ---------- CORE (no DOM) ----------
+function parseCSV(text){
+  if(text.charCodeAt(0)===0xFEFF) text=text.slice(1);
+  const rows=[];let row=[],f='',q=false,i=0,n=text.length;
+  while(i<n){
+    const c=text[i];
+    if(q){
+      if(c==='"'){ if(text[i+1]==='"'){f+='"';i+=2;continue;} q=false;i++;continue; }
+      f+=c;i++;continue;
+    }
+    if(c==='"'){q=true;i++;continue;}
+    if(c===','){row.push(f);f='';i++;continue;}
+    if(c==='\r'){i++;continue;}
+    if(c==='\n'){row.push(f);rows.push(row);row=[];f='';i++;continue;}
+    f+=c;i++;
+  }
+  if(f!==''||row.length){row.push(f);rows.push(row);}
+  return rows;
+}
+async function inflateRaw(u8){
+  const ds=new DecompressionStream('deflate-raw');
+  const s=new Blob([u8]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(s).arrayBuffer());
+}
+async function readZip(buf){
+  const u8=new Uint8Array(buf),dv=new DataView(buf);
+  let e=-1;
+  for(let i=u8.length-22;i>=Math.max(0,u8.length-70000);i--){ if(dv.getUint32(i,true)===0x06054b50){e=i;break;} }
+  if(e<0) throw new Error('This does not look like a valid .xlsx file.');
+  const cnt=dv.getUint16(e+10,true); let p=dv.getUint32(e+16,true);
+  const dec=new TextDecoder(), files={};
+  for(let k=0;k<cnt;k++){
+    if(dv.getUint32(p,true)!==0x02014b50) break;
+    const method=dv.getUint16(p+10,true), csz=dv.getUint32(p+20,true);
+    const nl=dv.getUint16(p+28,true), el=dv.getUint16(p+30,true), cl=dv.getUint16(p+32,true);
+    const off=dv.getUint32(p+42,true);
+    const name=dec.decode(u8.subarray(p+46,p+46+nl));
+    files[name]={method,csz,off};
+    p+=46+nl+el+cl;
+  }
+  return {
+    names:Object.keys(files),
+    async text(name){
+      const f=files[name]; if(!f) return null;
+      const ls=f.off+30+dv.getUint16(f.off+26,true)+dv.getUint16(f.off+28,true);
+      let d=u8.subarray(ls,ls+f.csz);
+      if(f.method===8) d=await inflateRaw(d);
+      return dec.decode(d);
+    }
+  };
+}
+function unesc(s){return s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(m,d)=>String.fromCodePoint(+d)).replace(/&#x([0-9a-f]+);/gi,(m,h)=>String.fromCodePoint(parseInt(h,16))).replace(/&amp;/g,'&');}
+function textOf(x){x=x.replace(/<rPh\b[\s\S]*?<\/rPh>/g,'');let o='',m,r=/<t\b[^>]*>([\s\S]*?)<\/t>/g;while((m=r.exec(x)))o+=m[1];return unesc(o);}
+function colIdx(ref){let n=0;for(const ch of ref.replace(/[0-9]/g,''))n=n*26+ch.charCodeAt(0)-64;return n-1;}
+async function readXlsx(buf){
+  const z=await readZip(buf);
+  let target=null;
+  const wb=await z.text('xl/workbook.xml'), rels=await z.text('xl/_rels/workbook.xml.rels');
+  if(wb&&rels){
+    const m=/<sheet\b[^>]*r:id="([^"]+)"/.exec(wb);
+    if(m){const rr=new RegExp('<Relationship\\b[^>]*Id="'+m[1]+'"[^>]*>').exec(rels);
+      if(rr){const t=/Target="([^"]+)"/.exec(rr[0]); if(t) target=t[1].replace(/^\//,'').replace(/^(?!xl\/)/,'xl/');}}
+  }
+  if(!target||!z.names.includes(target)) target=z.names.filter(n=>/^xl\/worksheets\/sheet\d+\.xml$/.test(n)).sort()[0];
+  if(!target) throw new Error('Sheet not found.');
+  const ss=[]; const sx=await z.text('xl/sharedStrings.xml');
+  if(sx){let m,r=/<si\b[^>]*>([\s\S]*?)<\/si>|<si\b[^>]*\/>/g;while((m=r.exec(sx)))ss.push(m[1]?textOf(m[1]):'');}
+  const xml=await z.text(target), rows=[];
+  const rowRe=/<row\b[^>]*?(?:\/>|>([\s\S]*?)<\/row>)/g; let rm;
+  while((rm=rowRe.exec(xml))){
+    const arr=[]; if(rm[1]){
+      const cr=/<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g; let cm;
+      while((cm=cr.exec(rm[1]))){
+        const at=cm[1], ref=/\br="([A-Z]+)\d+"/.exec(at); if(!ref) continue;
+        const t=/\bt="([^"]+)"/.exec(at), b=cm[2]||''; let v='';
+        if(t&&t[1]==='inlineStr') v=textOf(b);
+        else{const vm=/<v>([\s\S]*?)<\/v>/.exec(b); if(vm){v=unesc(vm[1]); if(t&&t[1]==='s') v=ss[+v]??'';}}
+        arr[colIdx(ref[1])]=v;
+      }
+    }
+    rows.push(arr);
+  }
+  return rows;
+}
+function norm(s){return String(s??'').trim().toLowerCase().replace(/[\s_]+/g,' ');}
+function findCol(header,name){const t=norm(name);return header.findIndex(h=>norm(h)===t);}
+function pivot(rows,campCol,subCol,campaign){
+  const byKey=new Map(); let total=0;
+  for(let i=1;i<rows.length;i++){
+    const r=rows[i]; if(!r) continue;
+    if(campCol>=0 && norm(r[campCol])!==norm(campaign)) continue;
+    let v=String(r[subCol]??'').trim(); if(v==='') v='null';
+    const k=v.toLowerCase(); let e=byKey.get(k);
+    if(!e){e={total:0,forms:new Map()};byKey.set(k,e);}
+    e.total++; e.forms.set(v,(e.forms.get(v)||0)+1); total++;
+  }
+  const out=[];
+  for(const [k,e] of byKey){let best='',bc=-1;for(const [f,c] of e.forms) if(c>bc){best=f;bc=c;} out.push([best,e.total]);}
+  out.sort((a,b)=>a[0].toLowerCase()<b[0].toLowerCase()?-1:1);
+  return {rows:out,total};
+}
+function campaigns(rows,campCol){const m=new Map();for(let i=1;i<rows.length;i++){const v=String(rows[i]?.[campCol]??'').trim();if(v)m.set(v,(m.get(v)||0)+1);}return [...m.entries()].sort((a,b)=>b[1]-a[1]);}
+function callStats(rows,campCol,gwCol,crmCol,campaign){
+  let dialed=0,answerNull=0,connected=0;
+  for(let i=1;i<rows.length;i++){
+    const r=rows[i]; if(!r) continue;
+    if(campCol>=0 && norm(r[campCol])!==norm(campaign)) continue;
+    dialed++;
+    const g=norm(r[gwCol]); let d=norm(r[crmCol]); if(d==='') d='null';
+    if(g==='answer'&&d==='null') answerNull++;
+    if(d==='contacted') connected++;
+  }
+  return {answerNull,connected,dialed,pct:dialed?connected/dialed*100:0};
+}
+// ---------- XLSX writer (stored zip) ----------
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function makeZip(files){
+  const enc=new TextEncoder(),parts=[],cd=[];let off=0;
+  for(const [name,txt] of files){
+    const nb=enc.encode(name),d=enc.encode(txt),crc=crc32(d);
+    const h=new DataView(new ArrayBuffer(30));
+    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint32(14,crc,true);h.setUint32(18,d.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nb.length,true);
+    parts.push(new Uint8Array(h.buffer),nb,d);
+    const c=new DataView(new ArrayBuffer(46));
+    c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint32(16,crc,true);c.setUint32(20,d.length,true);c.setUint32(24,d.length,true);c.setUint16(28,nb.length,true);c.setUint32(42,off,true);
+    cd.push(new Uint8Array(c.buffer),nb);
+    off+=30+nb.length+d.length;
+  }
+  let cds=0;for(const x of cd)cds+=x.length;
+  const e=new DataView(new ArrayBuffer(22));
+  e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cds,true);e.setUint32(16,off,true);
+  return new Blob([...parts,...cd,new Uint8Array(e.buffer)],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+function xesc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function buildXlsx(title,colName,res){
+  const R=[];let r=1;
+  const sc=(ref,v)=>`<c r="${ref}" t="inlineStr"><is><t>${xesc(v)}</t></is></c>`;
+  R.push(`<row r="${r++}">${sc('A1','Campaign: '+title)}</row>`); r++;
+  R.push(`<row r="${r}">${sc('A'+r,colName)}${sc('B'+r,'Count of '+colName)}</row>`);r++;
+  const first=r;
+  for(const [k,v] of res.rows){R.push(`<row r="${r}">${sc('A'+r,k)}<c r="B${r}"><v>${v}</v></c></row>`);r++;}
+  R.push(`<row r="${r}">${sc('A'+r,'Grand Total')}<c r="B${r}"><f>SUM(B${first}:B${r-1})</f><v>${res.total}</v></c></row>`);
+  const sheet=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><cols><col min="1" max="1" width="34" customWidth="1"/><col min="2" max="2" width="30" customWidth="1"/></cols><sheetData>${R.join('')}</sheetData></worksheet>`;
+  return makeZip([
+   ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>'],
+   ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+   ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Pivot" sheetId="1" r:id="rId1"/></sheets></workbook>'],
+   ['xl/_rels/workbook.xml.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>'],
+   ['xl/worksheets/sheet1.xml',sheet]]);
+}
+// ---------- UI ----------
+const $=id=>document.getElementById(id);
+let ROWS=null,RES=null,HDR=[];
+const msg=(t,e)=>{$('msg').textContent=t;$('msg').className=e?'err':'';};
+const drop=$('drop'),fi=$('file');
+drop.onclick=()=>fi.click();
+fi.onchange=()=>fi.files[0]&&load(fi.files[0]);
+['dragover','dragenter'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',ev=>{const f=ev.dataTransfer.files[0];f&&load(f);});
+function opts(sel,list,pick){sel.innerHTML='';list.forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;sel.appendChild(o);});if(pick!==undefined)sel.value=pick;}
+async function load(f){
+  try{
+    msg('Reading: '+f.name+' ...');
+    await new Promise(r=>setTimeout(r,30));
+    if(/\.xlsx$/i.test(f.name)) ROWS=await readXlsx(await f.arrayBuffer());
+    else if(/\.csv$/i.test(f.name)) ROWS=parseCSV(await f.text());
+    else throw new Error('Only .csv or .xlsx files are supported. (For .xls, use "Save As .xlsx" in Excel.)');
+    HDR=(ROWS[0]||[]).map(h=>String(h??''));
+    const cols=HDR.map((h,i)=>[i,h||('Column '+(i+1))]);
+    opts($('campcol'),cols,Math.max(0,findCol(HDR,'CAMPAIGN NAME')));
+    opts($('sub'),cols,Math.max(0,findCol(HDR,'CRM SUB-DISPOSITION')));
+    if(findCol(HDR,'CAMPAIGN NAME')<0||findCol(HDR,'CRM SUB-DISPOSITION')<0) msg('Standard column names not found. Please pick the right columns below.',true);
+    else msg(f.name+': '+(ROWS.length-1).toLocaleString('en-IN')+' rows found.');
+    fillCamps(); $('opts').classList.remove('hide'); run();
+  }catch(e){msg(e.message||String(e),true);}
+}
+function fillCamps(){
+  const cc=+$('campcol').value, list=campaigns(ROWS,cc);
+  const all=[['','(All campaigns)'],...list.map(([n,c])=>[n,n+' ('+c.toLocaleString('en-IN')+')'])];
+  const pre=list.find(([n])=>norm(n)==='mtf-cross sell');
+  opts($('camp'),all,pre?pre[0]:'');
+}
+$('campcol').onchange=()=>{fillCamps();run();};
+$('camp').onchange=run; $('sub').onchange=run;
+function run(){
+  const cc=+$('campcol').value, sc=+$('sub').value, camp=$('camp').value;
+  RES=pivot(ROWS,camp?cc:-1,sc,camp);
+  const sn=HDR[sc]||'Column';
+  let h='<tr><th>'+esc(sn)+'</th><th class="n">Count of '+esc(sn)+'</th></tr>';
+  for(const [k,v] of RES.rows) h+='<tr><td>'+esc(k)+'</td><td class="n">'+v.toLocaleString('en-IN')+'</td></tr>';
+  h+='<tr class="tot"><td>Grand Total</td><td class="n">'+RES.total.toLocaleString('en-IN')+'</td></tr>';
+  $('tbl').innerHTML=h; $('out').classList.remove('hide'); runSummary(camp);
+}
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function save(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
+const fname=()=>($('camp').value||'All-Campaigns').replace(/[^\w-]+/g,'_')+'_Sub_Disposition';
+$('bx').onclick=()=>save(buildXlsx($('camp').value||'All campaigns',HDR[+$('sub').value]||'Column',RES),fname()+'.xlsx');
+$('bc').onclick=()=>{const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
+  const sn=HDR[+$('sub').value]||'Column';
+  const t=[[sn,'Count of '+sn],...RES.rows,['Grand Total',RES.total]].map(r=>r.map(q).join(',')).join('\r\n');
+  save(new Blob(['\ufeff'+t],{type:'text/csv'}),fname()+'.csv');};
+$('bp').onclick=async()=>{const sn=HDR[+$('sub').value]||'Column';
+  const t=[[sn,'Count of '+sn],...RES.rows,['Grand Total',RES.total]].map(r=>r.join('\t')).join('\n');
+  try{await navigator.clipboard.writeText(t);msg('Copied. Now press Ctrl+V in Excel.');}
+  catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();msg('Copied. Now press Ctrl+V in Excel.');}};
+
+function shotCanvas(rows,hasTotal=true){
+  const S=2,RH=26,PAD=8,F='15px Arial,Helvetica,sans-serif',FB='bold 15px Arial,Helvetica,sans-serif';
+  const m=document.createElement('canvas').getContext('2d');
+  m.font=FB; let w1=0,w2=0;
+  rows.forEach(r=>{w1=Math.max(w1,m.measureText(r[0]).width);w2=Math.max(w2,m.measureText(r[1]).width);});
+  w1=Math.ceil(w1+PAD*2+24); w2=Math.ceil(w2+PAD*2); const W=w1+w2, H=rows.length*RH;
+  const c=document.createElement('canvas'); c.width=W*S; c.height=H*S;
+  const g=c.getContext('2d'); g.scale(S,S);
+  g.fillStyle='#fff'; g.fillRect(0,0,W,H); g.textBaseline='middle';
+  rows.forEach((r,i)=>{
+    const y=i*RH, hd=i===0, tot=hasTotal&&i===rows.length-1;
+    if(hd||tot){g.fillStyle='#DDEBF7';g.fillRect(0,y,W,RH);}
+    g.strokeStyle=(hd||tot)?'#9BC2E6':'#E1E4EA'; g.lineWidth=1;
+    g.beginPath(); g.moveTo(0,y+RH-.5); g.lineTo(W,y+RH-.5); if(tot){g.moveTo(0,y+.5);g.lineTo(W,y+.5);} g.stroke();
+    g.fillStyle='#000'; g.font=(hd||tot)?FB:F;
+    g.textAlign='left'; g.fillText(r[0],PAD,y+RH/2+1);
+    g.textAlign='right'; g.fillText(r[1],W-PAD,y+RH/2+1);
+  });
+  return c;
+}
+const pivRows=()=>{const sn=HDR[+$('sub').value]||'Column';return [[sn,'Count of '+sn],...RES.rows.map(r=>[r[0],r[1].toLocaleString('en-IN')]),['Grand Total',RES.total.toLocaleString('en-IN')]];};
+$('bs').onclick=()=>shotCanvas(pivRows()).toBlob(b=>save(b,fname()+'.png'),'image/png');
+$('bi').onclick=()=>{
+  shotCanvas(pivRows()).toBlob(async b=>{
+    try{await navigator.clipboard.write([new ClipboardItem({'image/png':b})]);msg('Screenshot copied. Now press Ctrl+V in WhatsApp or email.');}
+    catch(e){msg('Could not copy the image in this browser. Use "Download screenshot (PNG)" instead.',true);}
+  },'image/png');
+};
+
+let SUM=null;
+const fmt=n=>n.toLocaleString('en-IN');
+function runSummary(camp){
+  const gw=findCol(HDR,'GATEWAY DISPOSITION'), crm=findCol(HDR,'CRM DISPOSITION');
+  if(gw<0||crm<0){$('sum').classList.add('hide');return;}
+  const s=callStats(ROWS,camp?+$('campcol').value:-1,gw,crm,camp);
+  SUM=[['Metric','Value'],['ANSWER_NULL Calls',fmt(s.answerNull)],['Connected Calls',fmt(s.connected)],['Total Dialed Calls',fmt(s.dialed)],['Connectivity',s.pct.toFixed(2)+'%']];
+  $('stbl').innerHTML=SUM.map((r,i)=>i===0?'<tr><th>'+r[0]+'</th><th class="n">'+r[1]+'</th></tr>':'<tr'+(i===4?' class="tot"':'')+'><td>'+r[0]+'</td><td class="n">'+r[1]+'</td></tr>').join('');
+  $('snote').textContent='ANSWER_NULL = GATEWAY DISPOSITION "Answer" + CRM DISPOSITION null. Connected = CRM DISPOSITION "Contacted". Connectivity = Connected / Dialed.';
+  $('sum').classList.remove('hide');
+}
+$('ss').onclick=()=>shotCanvas(SUM,true).toBlob(b=>save(b,fname().replace('Sub_Disposition','Call_Summary')+'.png'),'image/png');
+$('si').onclick=()=>shotCanvas(SUM,true).toBlob(async b=>{
+  try{await navigator.clipboard.write([new ClipboardItem({'image/png':b})]);msg('Screenshot copied. Now press Ctrl+V.');}
+  catch(e){msg('Could not copy the image in this browser. Use the PNG download instead.',true);}
+},'image/png');
+$('sp').onclick=async()=>{const t=SUM.map(r=>r.join('\t')).join('\n');
+  try{await navigator.clipboard.writeText(t);}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}
+  msg('Copied. Now press Ctrl+V in Excel.');};
+</script>
+</body>
+</html>

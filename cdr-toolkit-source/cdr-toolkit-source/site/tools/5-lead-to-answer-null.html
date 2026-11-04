@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Answer Null Lead Data</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;padding:24px;color:#1f2933}
+.card{max-width:560px;margin:40px auto;background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+h1{font-size:20px;margin:0 0 6px}p{color:#52606d;font-size:14px;margin:0 0 18px}
+.drop{border:2px dashed #9aa5b1;border-radius:10px;padding:30px;text-align:center;cursor:pointer;background:#fafbfc}
+.drop.over{border-color:#2563eb;background:#eff6ff}
+label{display:block;font-size:13px;margin:16px 0 4px;color:#52606d}
+input[type=datetime-local]{padding:8px;border:1px solid #cbd2d9;border-radius:6px;font-size:14px}
+button{margin-top:18px;width:100%;padding:12px;font-size:15px;border:0;border-radius:8px;background:#2563eb;color:#fff;cursor:pointer}
+button:disabled{background:#9aa5b1;cursor:not-allowed}
+#msg{margin-top:16px;font-size:14px;line-height:1.5}.ok{color:#15803d}.err{color:#b91c1c}
+</style><style>html,body{background:#fff!important;color-scheme:light}html{overflow-y:hidden!important}</style><script>(function(){function s(){var b=document.body,c=getComputedStyle(b);var h=b.offsetHeight+parseFloat(c.marginTop||0)+parseFloat(c.marginBottom||0);try{parent.postMessage({cdrHeight:Math.ceil(h)+2},"*")}catch(e){}}addEventListener("load",s);addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement);setInterval(s,400)})()</script></head><body><div class="card">
+<h1>Answer Null Lead Data</h1>
+<p>Upload the Lead Data (.xlsx) file and the Answer Null file will download.</p>
+<div class="drop" id="drop">Drop a file here or click to browse<br><small id="fname"></small></div>
+<input type="file" id="file" accept=".xlsx,.xls" hidden>
+<label>date_entered (all other columns stay fixed)</label>
+<input type="datetime-local" id="dt" value="2026-10-31T20:15">
+<button id="go" disabled>Convert &amp; Download</button>
+<div id="msg"></div></div>
+<script>
+const HEAD=["id", "full_name", "date_entered", "date_modified", "modified_user_id", "created_by", "description", "deleted", "assigned_user_id", "team_id", "phone_mobile", "date_start", "date_end", "parent_type", "status", "parent_id", "disposition", "sub_disposition", "ticket", "callback_time", "appointment_time", "call_id", "call_duration", "call_start_time", "call_end_time", "appointment_address1", "appointment_address2", "appointment_landmark", "appointment_city", "appointment_state", "appointment_pin_code", "call_attempt_number", "actual_callback", "duration_minutes", "direction", "duration", "parent_name", "time_to", "opportunity_id", "created_for", "dcr_id", "call_record", "confierance_agent_id", "confierance_agent_name", "confierance_agent_mobile", "confierance_call", "manual", "campaign_id", "leg_parent_id", "enquiry_id", "sheet_name", "project_name", "ai_disposition", "ai_sub_disposition", "ai_description", "budget", "configuration"], BASE=[1, "Aman Gupta", "2026-10-31 20:15", "NULL", "NULL", 5, null, 0, 5, 3, "NULL", "NULL", "NULL", "Leads", "Held", 193868, "Contacted", "Connected to an executive", "NULL", "NULL", "NULL", "'09068437790-1793432838635-Leads-193868-7", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", 14, "NULL", "NULL", "Owlexa Outbound", "NULL", "NULL", "NULL", "NULL", "NULL", 0, "NULL", "NULL", "NULL", "NULL", "NULL", "No", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NA"];
+const $=id=>document.getElementById(id);let wbIn=null,inName='';
+$('drop').onclick=()=>$('file').click();
+$('drop').ondragover=e=>{e.preventDefault();$('drop').classList.add('over')};
+$('drop').ondragleave=()=>$('drop').classList.remove('over');
+$('drop').ondrop=e=>{e.preventDefault();$('drop').classList.remove('over');load(e.dataTransfer.files[0])};
+$('file').onchange=e=>load(e.target.files[0]);
+function say(t,c){$('msg').className=c||'';$('msg').textContent=t}
+function load(f){if(!f)return;inName=f.name;$('fname').textContent=f.name;say('Reading file...');
+ const r=new FileReader();r.onload=e=>{try{wbIn=XLSX.read(e.target.result,{type:'array'});$('go').disabled=false;say('File ready. Click Convert.')}catch(x){say('Could not open file: '+x.message,'err')}};r.readAsArrayBuffer(f)}
+const clean=v=>v==null?'':String(v).trim();
+$('go').onclick=()=>{try{
+ const ws=wbIn.Sheets[wbIn.SheetNames[0]];const rows=XLSX.utils.sheet_to_json(ws,{defval:null});
+ const need=['CUSTOMER NAME','RECORD ID','Remark','CALL ID','CALL ATTEMPT','CAMPAIGN NAME','GATEWAY DISPOSITION'];
+ const miss=need.filter(c=>!(rows.length&&c in rows[0]));
+ if(miss.length)return say('These columns were not found in the file: '+miss.join(', '),'err');
+ const sel=rows.filter(r=>clean(r['Remark'])!==''&&clean(r['CAMPAIGN NAME'])==='MTF-CROSS SELL'&&clean(r['GATEWAY DISPOSITION'])==='ANSWER');
+ if(!sel.length)return say('No rows matched the filter (Remark filled + MTF-CROSS SELL + ANSWER).','err');
+ const ix=n=>HEAD.indexOf(n);const dv=$('dt').value;let serial=null;
+ if(dv){const m=dv.match(/(\d+)-(\d+)-(\d+)T(\d+):(\d+)/);serial=(Date.UTC(+m[1],m[2]-1,+m[3],+m[4],+m[5])-Date.UTC(1899,11,30))/864e5}
+ const out=[HEAD];
+ sel.forEach((r,i)=>{const a=BASE.slice();a[ix('id')]=i+1;a[ix('full_name')]=r['CUSTOMER NAME'];
+  a[ix('parent_id')]=r['RECORD ID'];a[ix('sub_disposition')]=clean(r['Remark']);
+  a[ix('call_id')]=r['CALL ID'];a[ix('call_attempt_number')]=r['CALL ATTEMPT'];
+  a[ix('date_entered')]=serial;out.push(a)});
+ const o=XLSX.utils.aoa_to_sheet(out);const c=ix('date_entered');
+ for(let r=1;r<out.length;r++){const cell=o[XLSX.utils.encode_cell({r,c})];if(cell){cell.t='n';cell.z='dd/mm/yyyy hh:mm'}}
+ const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,o,'Sheet1');
+ const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ let d=null;const cs=sel[0]['CALL START TIME'];
+ if(typeof cs==='number')d=new Date(Date.UTC(1899,11,30)+Math.round(cs*864e5));
+ else if(cs){const t=new Date(cs);if(!isNaN(t))d=new Date(Date.UTC(t.getFullYear(),t.getMonth(),t.getDate()))}
+ if(!d&&dv){const m=dv.match(/(\d+)-(\d+)-(\d+)/);d=new Date(Date.UTC(+m[1],m[2]-1,+m[3]))}
+ const fn=d?String(d.getUTCDate()).padStart(2,'0')+'_'+MON[d.getUTCMonth()]+'_MTF_ANSWER_NULL.xlsx':'MTF_ANSWER_NULL.xlsx';
+ XLSX.writeFile(wb,fn);
+ say(sel.length+' rows converted. '+fn+' downloaded.','ok');
+}catch(x){say('Error: '+x.message,'err')}};
+</script></body></html>
