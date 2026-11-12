@@ -269,6 +269,8 @@ export default function SubDispositionPivotConverter() {
       connected = parseInt(String(summaryResult[2][1]).replace(/,/g, ''), 10) || 0;
       dialed = parseInt(String(summaryResult[3][1]).replace(/,/g, ''), 10) || 0;
       connectivity = parseFloat(String(summaryResult[4][1]).replace('%', '')) || 0;
+    } else if (pivotResult) {
+      dialed = pivotResult.total || 0;
     }
 
     const payload = {
@@ -987,9 +989,6 @@ export default function SubDispositionPivotConverter() {
           </div>
 
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <button className="btn" style={{ background: '#10b981', borderColor: '#10b981' }} onClick={() => setSaveModalOpen(true)}>
-              <Save size={15} /> Save Daily Report (8 PM)
-            </button>
             <button className="btn" onClick={downloadPivotImage}>
               <Camera size={15} /> Download screenshot (PNG)
             </button>
@@ -1039,9 +1038,6 @@ export default function SubDispositionPivotConverter() {
           </p>
 
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <button className="btn" style={{ background: '#10b981', borderColor: '#10b981' }} onClick={() => setSaveModalOpen(true)}>
-              <Save size={15} /> Save Daily Report (8 PM)
-            </button>
             <button className="btn" onClick={downloadSummaryImage}>
               <Camera size={15} /> Download screenshot (PNG)
             </button>
@@ -1052,6 +1048,30 @@ export default function SubDispositionPivotConverter() {
               <Copy size={15} /> Copy (paste into Excel)
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Unified Single Action: Save Complete Daily Report (8 PM) */}
+      {(pivotResult || summaryResult) && (
+        <div className="tool-card" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e6fced 100%)', border: '1.5px solid #86efac', padding: '18px 22px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 700, fontSize: '1.05rem', color: '#166534' }}>
+              <Save size={18} color="#16a34a" />
+              Save Complete Daily Report (8 PM)
+            </div>
+            <div style={{ fontSize: '0.85rem', color: '#15803d', marginTop: 4 }}>
+              Ek hi click me Sub-Disposition Breakdown aur Call Connectivity metrics ko Daily Analytics Master Database me save karein.
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="btn"
+            style={{ background: '#10b981', borderColor: '#10b981', fontSize: '0.95rem', padding: '10px 24px', fontWeight: 700, boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)' }}
+            onClick={() => setSaveModalOpen(true)}
+          >
+            <Save size={16} /> Save Daily Report (8 PM)
+          </button>
         </div>
       )}
 
