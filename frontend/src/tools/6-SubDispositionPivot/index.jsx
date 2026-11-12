@@ -56,6 +56,7 @@ export default function SubDispositionPivotConverter() {
   const [copiedAction, setCopiedAction] = useState('');
 
   // Save to Daily Analytics state
+  const [saveModalOpen, setSaveModalOpen] = useState(false);
   const [saveDate, setSaveDate] = useState(() => new Date().toISOString().split('T')[0]);
   const [savingStatus, setSavingStatus] = useState(null);
 
@@ -312,16 +313,25 @@ export default function SubDispositionPivotConverter() {
         setSavingStatus('saved');
         const sourceName = data.source === 'supabase' ? 'Supabase Cloud Database' : 'Browser Permanent Storage';
         triggerCopyFeedback(`✅ Saved permanently for ${saveDate} (${sourceName})!`);
-        setTimeout(() => setSavingStatus(null), 3000);
+        setTimeout(() => {
+          setSaveModalOpen(false);
+          setSavingStatus(null);
+        }, 1200);
       } else {
         setSavingStatus('saved');
         triggerCopyFeedback(`✅ Saved in browser permanent storage for ${saveDate}!`);
-        setTimeout(() => setSavingStatus(null), 3000);
+        setTimeout(() => {
+          setSaveModalOpen(false);
+          setSavingStatus(null);
+        }, 1200);
       }
     } catch (err) {
       setSavingStatus('saved');
       triggerCopyFeedback(`✅ Saved in browser permanent storage for ${saveDate}!`);
-      setTimeout(() => setSavingStatus(null), 3000);
+      setTimeout(() => {
+        setSaveModalOpen(false);
+        setSavingStatus(null);
+      }, 1200);
     }
   };
 
@@ -1068,7 +1078,7 @@ export default function SubDispositionPivotConverter() {
         </div>
       )}
 
-      {/* 100% Direct 1-Click Save Daily Report to Database */}
+      {/* Single Action: Open 2-Step Save Daily Report Confirmation */}
       {(pivotResult || summaryResult) && (
         <div className="tool-card" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', border: '1.5px solid #86efac', padding: '18px 24px', marginTop: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
@@ -1078,31 +1088,74 @@ export default function SubDispositionPivotConverter() {
                 Save Complete Daily Report (8 PM)
               </div>
               <div style={{ fontSize: '0.85rem', color: '#15803d', marginTop: 4 }}>
-                Sub-Disposition categories + Call Connectivity metrics ek hi click me Database me permanently save karein.
+                Sub-Disposition breakdown aur Call Connectivity metrics ko ek saath confirm karke Master Database me permanently save karein.
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#ffffff', padding: '6px 12px', borderRadius: 8, border: '1px solid #86efac' }}>
-                <Calendar size={15} color="#15803d" />
-                <span style={{ fontSize: '0.84rem', color: '#166534', fontWeight: 600 }}>Date:</span>
-                <input
-                  type="date"
-                  value={saveDate}
-                  onChange={e => setSaveDate(e.target.value)}
-                  style={{ border: 'none', outline: 'none', fontSize: '0.86rem', padding: 0, fontWeight: 600, color: '#1f2d4d' }}
-                />
-              </div>
+            <button
+              type="button"
+              className="btn"
+              style={{ background: '#10b981', borderColor: '#10b981', fontSize: '0.96rem', padding: '10px 24px', fontWeight: 700, boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)', minWidth: 230 }}
+              onClick={() => setSaveModalOpen(true)}
+            >
+              <Save size={16} /> Save Daily Report (8 PM)
+            </button>
+          </div>
+        </div>
+      )}
 
+      {/* 2-Step Confirmation Modal */}
+      {saveModalOpen && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', display: 'grid', placeItems: 'center', zIndex: 1000, padding: 20 }}>
+          <div style={{ background: '#ffffff', borderRadius: 12, padding: 24, width: '100%', maxWidth: 460, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+            <h3 style={{ margin: '0 0 12px', fontSize: '1.2rem', fontWeight: 700 }}>💾 Save Daily Performance Report</h3>
+            <p style={{ margin: '0 0 16px', fontSize: '0.86rem', color: 'var(--ink-secondary)' }}>
+              Save today&apos;s calls analysis to the master <b>Daily Analytics Tracker</b> for multi-month trends and profit/loss monitoring.
+            </p>
+
+            <div style={{ marginBottom: 14 }}>
+              <label style={{ display: 'block', fontSize: '0.84rem', color: 'var(--ink-secondary)', marginBottom: 4 }}>Report Date</label>
+              <input type="date" value={saveDate} onChange={e => setSaveDate(e.target.value)} required />
+            </div>
+
+            <div style={{ marginBottom: 14 }}>
+              <label style={{ display: 'block', fontSize: '0.84rem', color: 'var(--ink-secondary)', marginBottom: 4 }}>Campaign</label>
+              <input type="text" value={selectedCampaign || 'All campaigns'} readOnly style={{ background: '#f8fafc' }} />
+            </div>
+
+            <div style={{ background: '#f8fafc', padding: '12px 14px', borderRadius: 8, marginBottom: 18, fontSize: '0.84rem', border: '1px solid var(--border-light)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                <span>Total Calls Analyzed:</span>
+                <b>{fmt(pivotResult?.total || 0)}</b>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                <span>Total Dispositions:</span>
+                <b>{pivotResult?.rows?.length || 0} categories</b>
+              </div>
+              {summaryResult && summaryResult.length >= 5 && (
+                <>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                    <span>Connected Calls:</span>
+                    <b>{summaryResult[2][1]}</b>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10b981', fontWeight: 600 }}>
+                    <span>Connectivity Rate:</span>
+                    <span>{summaryResult[4][1]}</span>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+              <button type="button" className="btn btn-alt" onClick={() => setSaveModalOpen(false)}>Cancel</button>
               <button
                 type="button"
                 className="btn"
-                style={{ background: '#10b981', borderColor: '#10b981', fontSize: '0.96rem', padding: '10px 24px', fontWeight: 700, boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)', minWidth: 230 }}
+                style={{ background: '#10b981', borderColor: '#10b981' }}
                 onClick={handleSaveToDailyAnalytics}
                 disabled={savingStatus === 'saving'}
               >
-                <Save size={16} />
-                {savingStatus === 'saving' ? 'Saving to Database...' : savingStatus === 'saved' ? '✅ Saved Successfully!' : 'Save Daily Report (8 PM)'}
+                {savingStatus === 'saving' ? 'Saving to Database...' : 'Confirm & Save'}
               </button>
             </div>
           </div>
