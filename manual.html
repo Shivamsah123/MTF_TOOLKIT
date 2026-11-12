@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CDR Toolkit - User Manual & Operating Guide</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 16mm;
+  }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+    .no-break { page-break-inside: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    background: #fff;
+    line-height: 1.55;
+    font-size: 13.5px;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #1e3a8a;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .header .badge {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #bfdbfe;
+  }
+  .intro-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+  .tool-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .tool-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+  }
+  .tool-num {
+    background: #2563eb;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .tool-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+  .tool-desc {
+    color: #64748b;
+    font-size: 12.5px;
+    margin-left: auto;
+  }
+  .section-tag {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #475569;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .steps-list {
+    margin: 4px 0 10px 0;
+    padding-left: 20px;
+  }
+  .steps-list li {
+    margin-bottom: 4px;
+  }
+  .table-box {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 12px;
+  }
+  .table-box th, .table-box td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  .table-box th {
+    background: #f1f5f9;
+    font-weight: 600;
+    color: #334155;
+  }
+  .tip-box {
+    background: #fefce8;
+    border: 1px dashed #ca8a04;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #854d0e;
+    margin-top: 8px;
+  }
+  .code-pill {
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    font-size: 11.5px;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+  }
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>MTF / CDR Toolkit - User Manual</h1>
+    <div style="color: #64748b; font-size: 13px; margin-top: 2px;">Comprehensive step-by-step operating guide for all 6 converters</div>
+  </div>
+  <div class="badge">100% Client-Side Secure</div>
+</div>
+
+<div class="intro-box">
+  <b>Quick Start & Architecture Overview:</b><br>
+  1. Open the portal in your browser and sign in (Username: <code>Admin</code>, enter your password).<br>
+  2. Select your desired tool from the left navigation sidebar.<br>
+  3. <i>Privacy Guarantee:</i> All files are processed directly inside your browser memory (RAM); your data is never uploaded to any remote server.
+</div>
+
+<!-- TOOL 1 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">1</div>
+    <div class="tool-title">Disposition Remark Converter</div>
+    <div class="tool-desc">CSV Filter + Remark Merger + Excel Export</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Filter raw dialer CDR CSV for <code>MTF-CROSS SELL</code> campaign, attach manual remarks (e.g. <i>Dropped During Conversation</i>) to Interested leads, and generate segmented Excel reports.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>Step 1:</b> Click <code>Upload the CDR CSV file</code> to select your raw dialer file. The tool automatically isolates MTF-CROSS SELL campaign records.</li>
+    <li><b>Step 2:</b> Paste your remarks and Record IDs in the text box.
+      <br><span style="color:#64748b;">Supported Format Example:</span><br>
+      <code class="code-pill">Dropped During Conversation</code><br>
+      <code class="code-pill">lead_id: 211296</code><br>
+      <code class="code-pill">lead_id: 211666</code>
+    </li>
+    <li><b>Step 3:</b> Select the date and choose your download format:
+      <ul>
+        <li><code>Interested only</code>: Excel file containing only 'Interested' remarks.</li>
+        <li><code>Connected to executive only</code>: Excel file containing 'Connected to executive' remarks.</li>
+        <li><code>Download both files</code>: Full updated spreadsheet.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="tip-box">
+    <b>Verification Tip:</b> Check the live counter below Step 2: <i>"Remarks found: X, without remark: Y"</i>. Any invalid or extra IDs are highlighted.
+  </div>
+</div>
+
+<!-- TOOL 2 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">2</div>
+    <div class="tool-title">Excel to JSON Converter</div>
+    <div class="tool-desc">Spreadsheet to CRM API JSON Converter</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Convert calling records (.xlsx, .xlsm, or .csv) into clean, standardized CRM API JSON arrays for bulk API updates.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>Step 1:</b> Drag and drop your Excel or CSV file into the designated upload zone.</li>
+    <li><b>Step 2 (Column Mapping):</b> The tool automatically maps <code>lead_id</code>, <code>call_id</code>, <code>disposition</code>, and <code>sub_disposition</code>. Adjust dropdowns if needed.</li>
+    <li><b>Step 3:</b> Formatted JSON renders instantly on the right. Click <code>Copy JSON</code> or <code>Download .json</code>.</li>
+  </ol>
+  <div class="tip-box">
+    <b>Auto-Cleaning:</b> Duplicate Call IDs are automatically discarded, and rows with missing IDs are safely dropped.
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- TOOL 3 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">3</div>
+    <div class="tool-title">API Request Sender</div>
+    <div class="tool-desc">Integrated API Dispatcher & Testing Tool</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Directly send the JSON generated in Tool #2 to your target CRM or dialer API without needing external tools like Postman.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>Method & Endpoint:</b> Select HTTP Method (e.g. <code>POST</code>) and enter your API URL (e.g., <code>https://crm.company.com/api/v1/update</code>).</li>
+    <li><b>Authentication:</b> Select your auth scheme from the dropdown (Bearer Token / Basic Auth / API Key header).</li>
+    <li><b>Load Payload:</b> Click <code>Use JSON from converter</code> — the JSON payload from Tool #2 is automatically loaded into the body.</li>
+    <li><b>Dispatch:</b> Click <code>Send</code>. The live HTTP response code (200 OK), round-trip latency (ms), and body will appear below.</li>
+  </ol>
+  <div class="tip-box">
+    <b>Security Protection:</b> All calls route through an authenticated Vercel serverless proxy with SSRF protection blocking private IP access.
+  </div>
+</div>
+
+<!-- TOOL 4 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">4</div>
+    <div class="tool-title">Download Answer Null CDR</div>
+    <div class="tool-desc">Telephony Gateway Answer + CRM Null Filter</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Extract calls that successfully connected at the gateway telephony level but remained un-dispositioned (Null) in CRM.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>File Upload:</b> Drop your raw CDR CSV file into the upload zone.</li>
+    <li><b>Verify Filters:</b>
+      <ul>
+        <li>Campaign Name: <code>MTF-CROSS SELL</code> (default)</li>
+        <li>Gateway Disposition: <code>ANSWER</code> (default)</li>
+        <li>CRM Disposition: <code>Keep null rows only</code> (default)</li>
+      </ul>
+    </li>
+    <li><b>Convert:</b> Click <code>Convert & Download XLSX</code>. A clean, filtered spreadsheet downloads instantly.</li>
+  </ol>
+  <div class="tip-box">
+    <b>Verification Tip:</b> Check the stage flow badges: <i>Total Rows → Campaign Matches → Gateway Answered → Final Null Count</i>.
+  </div>
+</div>
+
+<!-- TOOL 5 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">5</div>
+    <div class="tool-title">Answer Null Lead Data</div>
+    <div class="tool-desc">Standard 57-Column CRM Import Formatter</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Convert filtered Answer Null records into the standard 57-column CRM import spreadsheet template for re-allocation.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>Upload Lead Data:</b> Drop your Lead Data spreadsheet (<code>.xlsx</code>) into the file card.</li>
+    <li><b>Timestamp Batch:</b> Use the <code>date_entered</code> picker to specify the date and time for the batch.</li>
+    <li><b>Convert & Download:</b> Click <code>Convert & Download</code>. The formatted file <code>[Date]_MTF_ANSWER_NULL.xlsx</code> will download.</li>
+  </ol>
+  <div class="tip-box">
+    <b>Required Columns:</b> The file must contain: <code>CUSTOMER NAME</code>, <code>RECORD ID</code>, <code>Remark</code>, <code>CALL ID</code>, and <code>CALL ATTEMPT</code>.
+  </div>
+</div>
+
+<!-- TOOL 6 -->
+<div class="tool-card no-break">
+  <div class="tool-head">
+    <div class="tool-num">6</div>
+    <div class="tool-title">Sub-Disposition Pivot Converter</div>
+    <div class="tool-desc">Pivot Reporting & High-Res PNG Screenshot Generator</div>
+  </div>
+  
+  <div><b>Business Purpose:</b> Instantly analyze Sub-Disposition frequency breakdowns, calculate Call Connectivity %, and export graphical report cards for WhatsApp/Email.</div>
+
+  <div class="section-tag">Step-by-Step Instructions:</div>
+  <ol class="steps-list">
+    <li><b>Upload File:</b> Drop your CDR CSV or Excel file into the upload zone.</li>
+    <li><b>Instant Analysis:</b> Two live tables render immediately:
+      <ul>
+        <li><b>Table 1:</b> Sub-Disposition Pivot (Dispositions count breakdown + Grand Total).</li>
+        <li><b>Table 2:</b> Call Summary (Dialed Calls, Connected Calls, Answer Null Calls, Connectivity %).</li>
+      </ul>
+    </li>
+    <li><b>Export Options:</b>
+      <ul>
+        <li><code>Copy screenshot</code>: Copies a crisp 2x retina PNG to your clipboard for instant <b>Ctrl + V</b> into WhatsApp or Email.</li>
+        <li><code>Download screenshot (PNG)</code>: Saves the graphical image to your drive.</li>
+        <li><code>Download Excel (.xlsx)</code> or <code>Download CSV</code>.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="tip-box">
+    <b>Formula:</b> Connectivity % = (Connected Calls / Total Dialed Calls) × 100.
+  </div>
+</div>
+
+<!-- QUICK SUMMARY TABLE -->
+<div class="tool-card no-break" style="margin-top: 15px; background: #f8fafc;">
+  <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: #1e3a8a;">Standard Troubleshooting & Checklist</div>
+  <table class="table-box">
+    <tr>
+      <th>Issue</th>
+      <th>Probable Cause</th>
+      <th>Resolution</th>
+    </tr>
+    <tr>
+      <td>"Columns not found" error</td>
+      <td>Spreadsheet header names differ from standard names</td>
+      <td>Verify standard header names (e.g., CAMPAIGN NAME, CRM SUB-DISPOSITION, RECORD ID).</td>
+    </tr>
+    <tr>
+      <td>"No rows matched"</td>
+      <td>Campaign name spelling or case mismatch</td>
+      <td>Ensure the campaign name matches <code>MTF-CROSS SELL</code> exactly.</td>
+    </tr>
+    <tr>
+      <td>Screenshot copy failed</td>
+      <td>Browser clipboard write permissions denied</td>
+      <td>Use the "Download screenshot (PNG)" button instead.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="footer">
+  CDR Toolkit v2.0 • Generated for Operations & Analytics Teams
+</div>
+
+</body>
+</html>
