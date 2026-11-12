@@ -251,6 +251,61 @@ export default function SubDispositionPivotConverter() {
     setToDate(d.toISOString().slice(0, 16));
   };
 
+  // --- SAVE DAILY REPORT TO ANALYTICS (Supabase / Local) ---
+  const handleSaveToDailyAnalytics = async () => {
+    if (!pivotResult) return;
+    setSavingStatus('saving');
+
+    // Build dispositions object from pivot rows
+    const dispositions = {};
+    pivotResult.rows.forEach(([label, count]) => {
+      dispositions[label] = count;
+    });
+
+    // Extract summary values
+    let dialed = 0, connected = 0, connectivity = 0, answerNull = 0;
+    if (summaryResult && summaryResult.length >= 5) {
+      answerNull = parseInt(String(summaryResult[1][1]).replace(/,/g, ''), 10) || 0;
+      connected = parseInt(String(summaryResult[2][1]).replace(/,/g, ''), 10) || 0;
+      dialed = parseInt(String(summaryResult[3][1]).replace(/,/g, ''), 10) || 0;
+      connectivity = parseFloat(String(summaryResult[4][1]).replace('%', '')) || 0;
+    }
+
+    const payload = {
+      report_date: saveDate,
+      campaign: selectedCampaign || 'All campaigns',
+      dialed,
+      connected,
+      connectivity,
+      answer_null: answerNull,
+      dispositions
+    };
+
+    try {
+      const res = await fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSavingStatus('saved');
+        triggerCopyFeedback(`Daily report saved for ${saveDate} (${data.source || 'database'})!`);
+        setTimeout(() => {
+          setSaveModalOpen(false);
+          setSavingStatus(null);
+        }, 1500);
+      } else {
+        setSavingStatus('error');
+        setMsg({ type: 'err', text: data.error || 'Failed to save report.' });
+      }
+    } catch (err) {
+      setSavingStatus('error');
+      setMsg({ type: 'err', text: `Save failed: ${err.message}` });
+    }
+  };
+
   // Generate authentic sample CDR CSV if token not provided
   const generateSampleCdrCsv = (camp, from, to) => {
     const headers = [
