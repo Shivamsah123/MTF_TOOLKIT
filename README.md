@@ -1,4 +1,5 @@
 # CDR Toolkit (Full-Stack Suite)
+<!-- vercel deploy trigger -->
 
 Production-ready, ultra-fast, and secure full-stack Call Detail Record (CDR) Toolkit with React frontend and hardened Node.js backend.
 
