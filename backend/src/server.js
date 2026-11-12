@@ -222,8 +222,10 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === 'GET') {
       try {
-        const reports = await getAllReports();
-        return sendJson(res, 200, { ok: true, reports }, corsHeaders);
+        const result = await getAllReports();
+        const reports = Array.isArray(result) ? result : (result.reports || []);
+        const source = result.source || 'local';
+        return sendJson(res, 200, { ok: true, source, reports }, corsHeaders);
       } catch (err) {
         return sendJson(res, 500, { error: err.message }, corsHeaders);
       }

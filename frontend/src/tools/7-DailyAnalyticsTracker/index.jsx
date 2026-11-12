@@ -45,6 +45,21 @@ export default function DailyAnalyticsTracker() {
   const fetchReports = async () => {
     setLoading(true);
     setErrorMsg('');
+
+    // 1. Instantly load from local storage so user sees their saved reports without delay
+    let localList = [];
+    try {
+      const raw = localStorage.getItem('cdr_master_daily_reports') || localStorage.getItem('cdr_daily_analytics_cache');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          localList = parsed;
+          setReports(localList);
+        }
+      }
+    } catch {}
+
+    // 2. Query server / Supabase
     try {
       const res = await fetch('/api/analytics', {
         method: 'GET',
@@ -52,30 +67,33 @@ export default function DailyAnalyticsTracker() {
       });
       if (res.ok) {
         const data = await res.json();
-        const list = Array.isArray(data.reports) ? data.reports : [];
-        setReports(list);
-        setSourceType(data.source === 'supabase' ? 'supabase' : 'local');
-        // Cache in localStorage as safety backup
+        const serverList = Array.isArray(data.reports) ? data.reports : [];
+        const isSupabase = data.source === 'supabase';
+        setSourceType(isSupabase ? 'supabase' : 'local');
+
+        // Merge local and server reports by id so neither is ever lost!
+        const mergedMap = new Map();
+        localList.forEach(r => { if (r && r.id) mergedMap.set(r.id, r); });
+        serverList.forEach(r => { if (r && r.id) mergedMap.set(r.id, r); });
+
+        const finalList = Array.from(mergedMap.values()).sort((a, b) => (b.report_date || '').localeCompare(a.report_date || ''));
+
+        setReports(finalList);
+
+        // Save merged list permanently in browser storage
         try {
-          localStorage.setItem('cdr_daily_analytics_cache', JSON.stringify(list));
+          localStorage.setItem('cdr_master_daily_reports', JSON.stringify(finalList));
+          localStorage.setItem('cdr_daily_analytics_cache', JSON.stringify(finalList));
         } catch {}
       } else {
-        throw new Error('Could not load reports from server.');
+        throw new Error('Server returned error status');
       }
     } catch (err) {
-      // Fallback to localStorage cache
-      try {
-        const cached = localStorage.getItem('cdr_daily_analytics_cache');
-        if (cached) {
-          setReports(JSON.parse(cached));
-          setSourceType('local');
-        } else {
-          setReports([]);
-        }
-      } catch {
-        setReports([]);
+      if (localList.length === 0) {
+        setErrorMsg('No saved reports found yet. Analyze CDR and click Save Daily Report (8 PM) in Tool 6.');
+      } else {
+        setSourceType('local');
       }
-      setErrorMsg('Loaded from local browser cache.');
     } finally {
       setLoading(false);
     }
@@ -168,15 +186,17 @@ export default function DailyAnalyticsTracker() {
         method: 'DELETE',
         credentials: 'include'
       });
-      const updated = reports.filter(r => r.id !== id);
-      setReports(updated);
-      try {
-        localStorage.setItem('cdr_daily_analytics_cache', JSON.stringify(updated));
-      } catch {}
-      triggerToast(`Report for ${date} removed.`);
-    } catch (err) {
-      alert(`Delete failed: ${err.message}`);
+    } catch (e) {
+      console.warn('Server delete error:', e);
     }
+
+    const updated = reports.filter(r => r.id !== id);
+    setReports(updated);
+    try {
+      localStorage.setItem('cdr_master_daily_reports', JSON.stringify(updated));
+      localStorage.setItem('cdr_daily_analytics_cache', JSON.stringify(updated));
+    } catch {}
+    triggerToast(`Report for ${date} removed.`);
   };
 
   // Add Manual Report
@@ -187,30 +207,45 @@ export default function DailyAnalyticsTracker() {
     const an = parseInt(manualAnswerNull || 0, 10);
     const conn = d > 0 ? ((c / d) * 100).toFixed(2) : 0;
 
+    const id = `${manualDate}_${manualCampaign.replace(/[^\w-]+/g, '_')}`;
     const payload = {
+      id,
       report_date: manualDate,
       campaign: manualCampaign,
       dialed: d,
       connected: c,
       connectivity: Number(conn),
       answer_null: an,
-      dispositions: {}
+      dispositions: {},
+      created_at: new Date().toISOString()
     };
 
+    // Save in browser storage immediately
     try {
-      const res = await fetch('/api/analytics', {
+      const stored = localStorage.getItem('cdr_master_daily_reports');
+      let list = stored ? JSON.parse(stored) : [];
+      if (!Array.isArray(list)) list = [];
+      const exIdx = list.findIndex(r => r.id === id);
+      if (exIdx >= 0) list[exIdx] = payload;
+      else list.unshift(payload);
+      localStorage.setItem('cdr_master_daily_reports', JSON.stringify(list));
+      localStorage.setItem('cdr_daily_analytics_cache', JSON.stringify(list));
+    } catch {}
+
+    try {
+      await fetch('/api/analytics', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         credentials: 'include'
       });
-      if (!res.ok) throw new Error('Save failed');
-      setShowAddModal(false);
-      triggerToast(`Saved report for ${manualDate}!`);
-      fetchReports();
     } catch (err) {
-      alert(err.message);
+      console.warn('Server save error:', err);
     }
+
+    setShowAddModal(false);
+    triggerToast(`Saved report for ${manualDate}!`);
+    fetchReports();
   };
 
   // Export Complete Master Excel File (.xlsx)

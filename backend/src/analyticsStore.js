@@ -50,7 +50,7 @@ function supabaseRequest(endpoint, method = 'GET', body = null) {
       'apikey': cfg.key,
       'Authorization': `Bearer ${cfg.key}`,
       'Content-Type': 'application/json',
-      'Prefer': method === 'POST' ? 'return=representation' : 'return=minimal'
+      'Prefer': method === 'POST' ? 'return=representation,resolution=merge-duplicates' : 'return=minimal'
     };
 
     const req = client.request({
@@ -91,7 +91,7 @@ export async function getAllReports() {
   if (cfg) {
     try {
       const data = await supabaseRequest('daily_analytics?select=*&order=report_date.desc');
-      if (Array.isArray(data)) return data;
+      if (Array.isArray(data)) return { source: 'supabase', reports: data };
     } catch (err) {
       console.warn('Supabase fetch failed, falling back to local storage:', err.message);
     }
@@ -101,9 +101,10 @@ export async function getAllReports() {
   try {
     const raw = fs.readFileSync(LOCAL_DATA_FILE, 'utf8');
     const list = JSON.parse(raw);
-    return Array.isArray(list) ? list.sort((a, b) => (b.report_date || '').localeCompare(a.report_date || '')) : [];
+    const sorted = Array.isArray(list) ? list.sort((a, b) => (b.report_date || '').localeCompare(a.report_date || '')) : [];
+    return { source: 'local', reports: sorted };
   } catch {
-    return [];
+    return { source: 'local', reports: [] };
   }
 }
 
