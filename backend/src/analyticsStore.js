@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const LOCAL_DATA_DIR = path.resolve(__dirname, '../data');
+const isVercel = Boolean(process.env.VERCEL);
+const LOCAL_DATA_DIR = isVercel ? '/tmp' : path.resolve(__dirname, '../data');
 const LOCAL_DATA_FILE = path.join(LOCAL_DATA_DIR, 'daily_analytics.json');
 
 // Ensure local data directory and file exist
