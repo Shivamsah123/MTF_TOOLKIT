@@ -164,6 +164,7 @@ export default function SubDispositionPivotConverter() {
       try {
         const proxyRes = await fetch('/api/send', {
           method: 'POST',
+          credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             url: targetFullUrl,
@@ -304,6 +305,7 @@ export default function SubDispositionPivotConverter() {
     try {
       const res = await fetch('/api/analytics', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
@@ -311,27 +313,31 @@ export default function SubDispositionPivotConverter() {
       const data = await res.json();
       if (res.ok && data.success) {
         setSavingStatus('saved');
-        const sourceName = data.source === 'supabase' ? 'Supabase Cloud Database' : 'Browser Permanent Storage';
-        triggerCopyFeedback(`✅ Saved permanently for ${saveDate} (${sourceName})!`);
+        if (data.source === 'supabase') {
+          triggerCopyFeedback(`✅ Saved permanently to Supabase Cloud DB for ${saveDate}!`);
+        } else {
+          const reason = data.supabaseError ? ` (${data.supabaseError})` : '';
+          triggerCopyFeedback(`⚠️ Saved to Browser Cache only${reason}`);
+        }
         setTimeout(() => {
           setSaveModalOpen(false);
           setSavingStatus(null);
-        }, 1200);
+        }, 1500);
       } else {
         setSavingStatus('saved');
-        triggerCopyFeedback(`✅ Saved in browser permanent storage for ${saveDate}!`);
+        triggerCopyFeedback(`⚠️ Saved to Browser Cache (${data.error || 'Server error'})`);
         setTimeout(() => {
           setSaveModalOpen(false);
           setSavingStatus(null);
-        }, 1200);
+        }, 1500);
       }
     } catch (err) {
       setSavingStatus('saved');
-      triggerCopyFeedback(`✅ Saved in browser permanent storage for ${saveDate}!`);
+      triggerCopyFeedback(`⚠️ Saved to Browser Cache only (Network error)`);
       setTimeout(() => {
         setSaveModalOpen(false);
         setSavingStatus(null);
-      }, 1200);
+      }, 1500);
     }
   };
 

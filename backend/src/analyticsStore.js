@@ -124,14 +124,18 @@ export async function saveReport(record) {
   };
 
   const cfg = getSupabaseConfig();
+  let supabaseError = null;
   if (cfg) {
     try {
       // Upsert into Supabase
       const res = await supabaseRequest('daily_analytics?on_conflict=id', 'POST', payload);
       return { success: true, source: 'supabase', record: payload };
     } catch (err) {
+      supabaseError = err.message;
       console.warn('Supabase save failed, saving to local:', err.message);
     }
+  } else {
+    supabaseError = 'SUPABASE_URL and SUPABASE_KEY are not configured on server';
   }
 
   // Local file save
@@ -149,7 +153,7 @@ export async function saveReport(record) {
     }
 
     fs.writeFileSync(LOCAL_DATA_FILE, JSON.stringify(list, null, 2), 'utf8');
-    return { success: true, source: 'local', record: payload };
+    return { success: true, source: 'local', supabaseError, record: payload };
   } catch (err) {
     throw new Error(`Failed to save report: ${err.message}`);
   }
