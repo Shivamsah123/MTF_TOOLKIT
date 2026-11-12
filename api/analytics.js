@@ -1,5 +1,5 @@
-import { getSession } from '../backend/src/auth.js';
-import { getAllReports, saveReport, deleteReport } from '../backend/src/analyticsStore.js';
+import { getSession } from './_lib/auth.js';
+import { getAllReports, saveReport, deleteReport } from './_lib/analyticsStore.js';
 
 export default async function handler(req, res) {
   const session = getSession(req);

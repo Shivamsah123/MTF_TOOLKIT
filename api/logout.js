@@ -1,4 +1,4 @@
-import { makeCookieHeader } from '../backend/src/auth.js';
+import { makeCookieHeader } from './_lib/auth.js';
 
 export default function handler(req, res) {
   if (req.method !== 'POST') {

@@ -6,7 +6,7 @@ import {
   checkRateLimit,
   recordFailedAttempt,
   resetAttempts
-} from '../backend/src/auth.js';
+} from './_lib/auth.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

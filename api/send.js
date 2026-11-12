@@ -1,9 +1,5 @@
-import { getSession } from '../backend/src/auth.js';
-import { forwardApiRequest } from '../backend/src/proxy.js';
-
-export const config = {
-  maxDuration: 30
-};
+import { getSession } from './_lib/auth.js';
+import { forwardApiRequest } from './_lib/proxy.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

@@ -1,4 +1,4 @@
-import { getSession } from '../backend/src/auth.js';
+import { getSession } from './_lib/auth.js';
 
 export default function handler(req, res) {
   if (req.method !== 'GET') {
