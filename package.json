@@ -3,13 +3,10 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "frontend"
-  ],
   "scripts": {
     "dev:frontend": "npm --prefix frontend run dev",
     "dev:backend": "npm --prefix backend run dev",
-    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "build": "cd frontend && npm install && npm run build",
     "start": "npm --prefix backend run start"
   }
 }
