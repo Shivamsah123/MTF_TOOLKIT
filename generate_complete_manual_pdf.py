@@ -754,7 +754,7 @@ env_rows = [
     ("ADMIN_USER", "Admin", "Username for application login"),
     ("ADMIN_PASS", "Admin@123", "Strong password for authentication"),
     ("SESSION_SECRET", "32+ char secret string", "Key used to sign HMAC-SHA256 session cookies"),
-    ("SUPABASE_URL", "https://coqzqvrkcrvodmbntlkf.supabase.co", "Supabase project REST endpoint"),
+    ("SUPABASE_URL", "https://coozqvrkcruodmbbntkf.supabase.co", "Supabase project REST endpoint"),
     ("SUPABASE_KEY", "sb_secret_TBZAT... (Secret Key)", "Backend Secret Key for database read/write access")
 ]
 
