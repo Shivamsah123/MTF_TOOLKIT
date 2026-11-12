@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R] /Count 4 >>
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R] /Count 8 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -16,208 +16,167 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 7936 >>
+<< /Length 6643 >>
 stream
-0.120 0.350 0.800 rg
-1.00 w 36.00 799.89 523.28 2.50 re f
-0.080 0.200 0.600 rg
-BT /F2 16 Tf 36.00 813.89 Td (MTF CDR Toolkit - Illustrated User Manual) Tj ET
-0.400 0.450 0.500 rg
-BT /F1 9 Tf 36.00 788.89 Td (Visual Operating Guide with UI Mockups & Step-by-Step Examples \(Tools 1 & 2\)) Tj ET
-0.960 0.980 1.000 rg
-0.750 0.850 0.980 RG
-1.00 w 36.00 743.89 523.28 32.00 re B
-0.150 0.450 0.850 rg
-1.00 w 36.00 743.89 4.00 32.00 re f
-0.100 0.300 0.700 rg
-BT /F2 8.5 Tf 48.00 762.89 Td (SECURITY & ARCHITECTURE NOTE:) Tj ET
-0.200 0.250 0.350 rg
-BT /F1 8.5 Tf 48.00 751.89 Td (All conversions run 100% inside your local browser memory. Files are NEVER uploaded to any external server.) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 713.89 22.00 22.00 re f
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
 1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 718.89 Td (1) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 719.89 Td (Disposition Remark Converter) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 719.89 Td (File: site/tools/1-disposition-remark.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 708.89 m 559.28 708.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 696.89 Td (PURPOSE & USE CASE:) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 685.89 Td (Filter raw CDR CSV for MTF-CROSS SELL campaign, attach manual remarks to Interested leads, and export segmented Excel spreadsheets.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 670.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 658.89 Td (1.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 658.89 Td (Upload File: Click 'Upload the CDR CSV file'. Campaign & disposition are auto-filtered.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 645.89 Td (2.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 645.89 Td (Paste Remarks: Paste Remark title with 'lead_id: 12345' lines below it.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 632.89 Td (3.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 632.89 Td (Select Date: Choose campaign date for dynamic filename.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 619.89 Td (4.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 619.89 Td (Download: Click 'Interested only', 'Connected only', or 'Both'.) Tj ET
+BT /F2 13.5 Tf 50.00 788.89 Td (WAANEE AI - MTF CDR TOOLKIT SUITE \(v2.0\)) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Complete Operational Reference & Step-by-Step Training Manual) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (OVERVIEW) Tj ET
+0.980 0.960 1.000 rg
+0.850 0.750 0.980 RG
+0.80 w 36.00 721.89 523.28 32.00 re B
+0.600 0.100 0.700 rg
+1.00 w 36.00 721.89 4.00 32.00 re f
+0.600 0.100 0.700 rg
+BT /F2 8.5 Tf 48.00 740.89 Td (ENTERPRISE PRODUCTION READY ARCHITECTURE) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 8.2 Tf 48.00 729.89 Td (Full-stack React 19 + Node.js/Vercel Serverless. 100% Client-side conversions + Supabase Cloud Database + Browser Fallback.) Tj ET
 0.985 0.990 1.000 rg
 0.800 0.850 0.920 RG
-1.00 w 293.00 569.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 686.89 266.28 18.00 re B
-0.900 0.400 0.400 rg
-1.00 w 299.00 691.89 6.00 6.00 re f
-0.900 0.700 0.300 rg
-1.00 w 308.00 691.89 6.00 6.00 re f
-0.400 0.800 0.400 rg
-1.00 w 317.00 691.89 6.00 6.00 re f
+1.00 w 36.00 574.89 523.28 135.00 re B
+0.120 0.180 0.300 rg
+1.00 w 36.00 689.89 523.28 20.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 46.00 695.89 Td (SECURITY, AUTHENTICATION & MULTI-USER ACCESS ARCHITECTURE) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 676.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 674.89 Td (Stateless HMAC-SHA256 Signed Tokens:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 674.89 Td (Tokens stored in HttpOnly secure cookies. No memory overhead on server.) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 660.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 658.89 Td (Unlimited Simultaneous Users:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 658.89 Td (Stateless architecture allows 5, 20, or 100+ team members to log in concurrently.) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 644.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 642.89 Td (12-Hour Continuous Session \(SESSION_MAX_AGE\):) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 642.89 Td (Log in once at 8 AM and work uninterrupted till 8 PM without re-login.) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 628.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 626.89 Td (Brute-Force Rate Limiter Protection:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 626.89 Td (5 failed password attempts automatically trigger a 15-minute security lock on IP.) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 612.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 610.89 Td (SSRF-Protected REST API Proxy \(/api/send\):) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 610.89 Td (Direct gateway queries block private/loopback/cloud metadata IP ranges.) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 596.89 4.00 4.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 58.00 594.89 Td (100% In-Browser Privacy & Speed:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 251.00 594.89 Td (CDR processing, Excel generation, and JSON parsing execute in client RAM.) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.940 RG
+1.00 w 36.00 373.89 523.28 185.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 536.89 523.28 22.00 re f
+0.850 0.880 0.920 RG
+0.60 w 36.00 536.89 m 559.28 536.89 l S
+0.120 0.180 0.300 rg
+BT /F2 9 Tf 46.00 543.89 Td (COMPLETE TOOLKIT MODULE DIRECTORY \(ALL 7 INDEPENDENT TOOLS\)) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 46.00 517.89 35.00 12.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7.2 Tf 51.00 521.39 Td (Tool 1) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 521.39 Td (Disposition Remark Converter) Tj ET
 0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 691.89 Td (UI Screen & Input/Output Example: Disposition Remark Converter) Tj ET
+BT /F1 7.6 Tf 256.00 521.39 Td (Map QA/Agent remarks to matched Lead IDs & export formatted Excel) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 521.39 Td (Page 2) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 512.89 m 549.28 512.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 497.89 35.00 12.00 re f
 1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 660.89 254.28 22.00 re B
-0.200 0.400 0.700 rg
-BT /F1 7.5 Tf 305.00 668.89 Td ([+] Choose File: cdr_sample_04nov.csv) Tj ET
-0.920 0.980 0.940 rg
-0.500 0.800 0.600 RG
-0.60 w 468.28 664.89 114.00 13.00 re B
-0.080 0.500 0.200 rg
-BT /F2 7.5 Tf 473.28 668.39 Td (Filtered: 1,420 rows) Tj ET
-0.970 0.980 0.990 rg
-0.820 0.850 0.900 RG
-0.70 w 299.00 611.89 254.28 44.00 re B
-0.100 0.200 0.500 rg
-BT /F2 7 Tf 304.00 643.89 Td (Dropped During Conversation) Tj ET
-0.300 0.350 0.400 rg
-BT /F1 6.8 Tf 311.00 633.89 Td (lead_id: 211296) Tj ET
-0.300 0.350 0.400 rg
-BT /F1 6.8 Tf 311.00 623.89 Td (lead_id: 211666) Tj ET
-0.200 0.400 0.300 rg
-BT /F1 6.8 Tf 304.00 613.89 Td (Connected to an executive  -> lead_id: 193132) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 299.00 591.89 75.00 14.00 re B
-1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 304.00 595.89 Td (Download Interested) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 379.00 591.89 68.00 14.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 384.00 595.89 Td (Connected Only) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 451.00 591.89 52.00 14.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 456.00 595.89 Td (Both Files) Tj ET
-0.930 0.980 0.940 rg
-1.00 w 299.00 575.89 254.28 12.00 re f
-0.100 0.550 0.200 rg
-BT /F2 6.8 Tf 303.00 578.89 Td (Output: 04_Nov_MTF_Interested.xlsx downloaded \(142 rows\)) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 532.89 22.00 22.00 re f
-1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 537.89 Td (2) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 538.89 Td (Excel to JSON Converter) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 538.89 Td (File: site/tools/2-excel-to-json.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 527.89 m 559.28 527.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 515.89 Td (PURPOSE & USE CASE:) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 504.89 Td (Convert raw calling spreadsheets \(.xlsx, .xlsm, or .csv\) into clean, deduplicated CRM API JSON arrays for bulk API updates.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 489.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 477.89 Td (1.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 477.89 Td (Drop File: Drag and drop your Excel or CSV file into the drop zone.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 464.89 Td (2.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 464.89 Td (Verify Mapping: Tool auto-detects lead_id, call_id, disposition, and remarks.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 451.89 Td (3.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 451.89 Td (Deduplication: Duplicate call_id rows and blank lines are auto-purged.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 438.89 Td (4.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 438.89 Td (Export: Click 'Copy JSON' to clipboard or 'Download .json' file.) Tj ET
-0.985 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 293.00 388.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 505.89 266.28 18.00 re B
-0.900 0.400 0.400 rg
-1.00 w 299.00 510.89 6.00 6.00 re f
-0.900 0.700 0.300 rg
-1.00 w 308.00 510.89 6.00 6.00 re f
-0.400 0.800 0.400 rg
-1.00 w 317.00 510.89 6.00 6.00 re f
+BT /F2 7.2 Tf 51.00 501.39 Td (Tool 2) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 501.39 Td (Excel to JSON Converter) Tj ET
 0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 510.89 Td (UI Screen & Input/Output Example: Excel to JSON Converter) Tj ET
+BT /F1 7.6 Tf 256.00 501.39 Td (Multi-sheet workbook parser & structured JSON payload generator) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 501.39 Td (Page 2) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 492.89 m 549.28 492.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 477.89 35.00 12.00 re f
 1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 414.89 122.14 85.00 re B
-0.920 0.950 0.980 rg
-1.00 w 299.00 487.89 122.14 12.00 re f
-0.150 0.300 0.600 rg
-BT /F2 7 Tf 303.00 491.89 Td (Excel Input \(Raw Columns\)) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.8 Tf 303.00 476.89 Td (lead_id: 193868) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.8 Tf 303.00 465.89 Td (call_id: 09068437790-1793...) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.8 Tf 303.00 454.89 Td (sub_disp: Interested) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.8 Tf 303.00 443.89 Td (summary: Call completed) Tj ET
-0.920 0.980 0.940 rg
-0.500 0.800 0.600 RG
-0.60 w 303.00 418.89 67.20 13.00 re B
-0.080 0.500 0.200 rg
-BT /F2 7.5 Tf 308.00 422.39 Td (Auto-mapped) Tj ET
-0.980 0.980 0.990 rg
-0.820 0.850 0.900 RG
-0.70 w 431.14 414.89 122.14 85.00 re B
-0.200 0.250 0.300 rg
-1.00 w 431.14 487.89 122.14 12.00 re f
+BT /F2 7.2 Tf 51.00 481.39 Td (Tool 3) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 481.39 Td (API Request Sender) Tj ET
+0.300 0.350 0.450 rg
+BT /F1 7.6 Tf 256.00 481.39 Td (SSRF-protected REST API client for testing CRM webhook endpoints) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 481.39 Td (Page 3) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 472.89 m 549.28 472.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 457.89 35.00 12.00 re f
 1.000 1.000 1.000 rg
-BT /F2 7 Tf 435.14 491.89 Td (Output JSON Array Preview) Tj ET
-0.400 0.400 0.400 rg
-BT /F1 7 Tf 435.14 477.89 Td ([) Tj ET
-0.100 0.400 0.700 rg
-BT /F1 6.8 Tf 435.14 467.89 Td (  { "lead_id": 193868,) Tj ET
-0.700 0.300 0.100 rg
-BT /F1 6.8 Tf 435.14 457.89 Td (    "call_id": "0906843...",) Tj ET
-0.100 0.500 0.300 rg
-BT /F1 6.8 Tf 435.14 447.89 Td (    "disposition": "Contacted",) Tj ET
-0.300 0.300 0.300 rg
-BT /F1 6.8 Tf 435.14 437.89 Td (    "sub_disposition": "..." }) Tj ET
-0.400 0.400 0.400 rg
-BT /F1 7 Tf 435.14 418.89 Td (]) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 299.00 394.89 65.00 14.00 re B
+BT /F2 7.2 Tf 51.00 461.39 Td (Tool 4) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 461.39 Td (Answer Null CDR Filter) Tj ET
+0.300 0.350 0.450 rg
+BT /F1 7.6 Tf 256.00 461.39 Td (Segregate Answered calls with empty CRM status for redialing campaigns) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 461.39 Td (Page 3) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 452.89 m 549.28 452.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 437.89 35.00 12.00 re f
 1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 304.00 398.89 Td (Copy JSON) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 371.00 394.89 75.00 14.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 376.00 398.89 Td (Download .json) Tj ET
-0.100 0.500 0.200 rg
-BT /F2 6.8 Tf 454.00 398.89 Td (Status: 1,420 records converted \(0 duplicates\)) Tj ET
-0.8 0.8 0.8 RG
-0.5 w 36.00 33.00 m 559.28 33.00 l S
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 36.00 22.00 Td (MTF / CDR Toolkit - Visual Illustrated User Manual (English)) Tj ET
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 511.28 22.00 Td (Page 1 of 4) Tj ET
+BT /F2 7.2 Tf 51.00 441.39 Td (Tool 5) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 441.39 Td (Lead to Answer Null Generator) Tj ET
+0.300 0.350 0.450 rg
+BT /F1 7.6 Tf 256.00 441.39 Td (Map raw dialer fields into 57-column standardized CRM lead schema) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 441.39 Td (Page 4) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 432.89 m 549.28 432.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 417.89 35.00 12.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7.2 Tf 51.00 421.39 Td (Tool 6) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 421.39 Td (Sub-Disposition Pivot Converter) Tj ET
+0.300 0.350 0.450 rg
+BT /F1 7.6 Tf 256.00 421.39 Td (Dual Mode: Portal API Fetch or CSV drop + Automated Pivot + 8 PM Save) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 421.39 Td (Page 4-5) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 412.89 m 549.28 412.89 l S
+0.996 0.004 0.408 rg
+1.00 w 46.00 397.89 35.00 12.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7.2 Tf 51.00 401.39 Td (Tool 7) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 88.00 401.39 Td (Daily Analytics & Trend Tracker) Tj ET
+0.300 0.350 0.450 rg
+BT /F1 7.6 Tf 256.00 401.39 Td (Multi-month comparative dashboard, profit/loss trend & Supabase database) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.6 Tf 514.28 401.39 Td (Page 6) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 46.00 392.89 m 549.28 392.89 l S
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 1 of 8) Tj ET
 
 endstream
 endobj
@@ -225,197 +184,178 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 7407 >>
+<< /Length 6877 >>
 stream
-0.120 0.350 0.800 rg
-1.00 w 36.00 799.89 523.28 2.50 re f
-0.080 0.200 0.600 rg
-BT /F2 16 Tf 36.00 813.89 Td (MTF CDR Toolkit - Illustrated User Manual \(Page 2\)) Tj ET
-0.400 0.450 0.500 rg
-BT /F1 9 Tf 36.00 788.89 Td (Visual Operating Guide with UI Mockups & Step-by-Step Examples \(Tools 3 & 4\)) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 757.89 22.00 22.00 re f
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
 1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 762.89 Td (3) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 763.89 Td (API Request Sender) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 763.89 Td (File: site/tools/3-api-sender.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 752.89 m 559.28 752.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 740.89 Td (PURPOSE & USE CASE:) Tj ET
+BT /F2 13.5 Tf 50.00 788.89 Td (TOOL 1 & TOOL 2: DATA TRANSFORMATION SUITE) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Remark Injection, Column Mapping, and Structured JSON Generation) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (MODULES 1 & 2) Tj ET
+0.995 0.995 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 598.89 523.28 155.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 729.89 523.28 24.00 re f
+0.820 0.860 0.920 RG
+0.60 w 36.00 729.89 m 559.28 729.89 l S
+0.996 0.004 0.408 rg
+1.00 w 44.00 732.89 18.00 18.00 re f
+1.000 1.000 1.000 rg
+BT /F2 10 Tf 50.00 737.89 Td (1) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 11 Tf 68.00 738.89 Td (Disposition Remark Converter) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 8 Tf 266.00 738.89 Td (site/tools/1-disposition-remark) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 717.89 Td (PURPOSE & BUSINESS IMPACT:) Tj ET
 0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 729.89 Td (Directly dispatch JSON payloads \(generated in Tool #2\) to your target CRM or dialer API without needing Postman.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 714.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
+BT /F1 7.8 Tf 46.00 707.89 Td (Inject custom agent feedback or QA remarks into matched Lead IDs for CRM upload.) Tj ET
 0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 702.89 Td (1.) Tj ET
+BT /F2 7.8 Tf 46.00 693.89 Td (STEP-BY-STEP OPERATION:) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 682.89 Td (1.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 702.89 Td (Configure Endpoint: Select HTTP method \(POST\) and enter destination API URL.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 689.89 Td (2.) Tj ET
+BT /F1 7.6 Tf 58.00 682.89 Td (Upload raw CDR CSV/XLSX file via drag-and-drop zone.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 671.39 Td (2.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 689.89 Td (Authorization: Select scheme \(Bearer Token / Basic Auth / API Key header\).) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 676.89 Td (3.) Tj ET
+BT /F1 7.6 Tf 58.00 671.39 Td (Select target campaign filter \(Default: MTF-CROSS SELL\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 659.89 Td (3.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 676.89 Td (Load JSON: Click 'Use JSON from converter' to auto-import Tool 2 data.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 663.89 Td (4.) Tj ET
+BT /F1 7.6 Tf 58.00 659.89 Td (Paste Lead IDs in the textarea \(separated by commas or newlines\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 648.39 Td (4.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 663.89 Td (Execute: Click 'Send' to view live response status code and latency.) Tj ET
-0.985 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 293.00 613.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 730.89 266.28 18.00 re B
-0.900 0.400 0.400 rg
-1.00 w 299.00 735.89 6.00 6.00 re f
-0.900 0.700 0.300 rg
-1.00 w 308.00 735.89 6.00 6.00 re f
-0.400 0.800 0.400 rg
-1.00 w 317.00 735.89 6.00 6.00 re f
-0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 735.89 Td (UI Screen & Input/Output Example: API Request Sender) Tj ET
+BT /F1 7.6 Tf 58.00 648.39 Td (Type the Remark text \(e.g. 'Interested - Call Back Tomorrow'\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 636.89 Td (5.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 636.89 Td (Select Match Mode \('Interested Only' or 'All Dispositions'\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 625.39 Td (6.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 625.39 Td (Click 'Download Excel \(.xlsx\)' to get updated file with 'Remark' column.) Tj ET
 1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 706.89 199.28 18.00 re B
-0.800 0.300 0.100 rg
-BT /F2 7.5 Tf 303.00 713.89 Td (POST) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 7.2 Tf 331.00 713.89 Td (https://crm.company.com/api/v1/update-leads) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 503.28 706.89 50.00 18.00 re B
-1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 508.28 710.89 Td (Send) Tj ET
+0.850 0.880 0.920 RG
+0.60 w 310.00 606.89 243.28 115.00 re B
 0.960 0.970 0.990 rg
-0.70 w 299.00 684.89 254.28 18.00 re B
-0.300 0.350 0.450 rg
-BT /F1 7 Tf 303.00 691.89 Td (Authorization: Bearer Token [ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... ]) Tj ET
-1.000 1.000 1.000 rg
-0.70 w 299.00 641.89 254.28 32.00 re B
-0.150 0.450 0.800 rg
-BT /F2 7 Tf 303.00 663.89 Td (Body: Loaded from Converter \(Tool #2\) -> 1,420 records payload) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 303.00 645.89 110.00 13.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 308.00 649.89 Td (Use JSON from converter) Tj ET
-0.940 0.980 0.950 rg
-0.600 0.800 0.650 RG
-0.80 w 299.00 619.89 254.28 18.00 re B
-0.920 0.980 0.940 rg
-0.500 0.800 0.600 RG
-0.60 w 303.00 622.39 41.20 13.00 re B
-0.080 0.500 0.200 rg
-BT /F2 7.5 Tf 308.00 625.89 Td (200 OK) Tj ET
-0.100 0.500 0.200 rg
-BT /F2 6.8 Tf 349.00 625.89 Td (Latency: 142 ms  |  Size: 4,820 bytes  |  Result: { success: true, updated: 1420 }) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 576.89 22.00 22.00 re f
-1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 581.89 Td (4) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 582.89 Td (Download Answer Null CDR) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 582.89 Td (File: site/tools/4-answer-null-cdr.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 571.89 m 559.28 571.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 559.89 Td (PURPOSE & USE CASE:) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 548.89 Td (Identify and extract calls answered at the gateway telephony level but left un-dispositioned \(Null\) in CRM.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 533.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 521.89 Td (1.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 521.89 Td (Upload CDR: Drop your raw dialer CDR CSV file into the drop zone.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 508.89 Td (2.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 508.89 Td (Verify Filters: Campaign='MTF-CROSS SELL', Gateway='ANSWER', CRM='null'.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 495.89 Td (3.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 495.89 Td (Pipeline View: Track live count chips \(Total -> Campaign -> Final Null\).) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 482.89 Td (4.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 482.89 Td (Download XLSX: Click 'Convert & Download XLSX' for filtered sheet.) Tj ET
-0.985 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 293.00 432.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 549.89 266.28 18.00 re B
+1.00 w 310.00 707.89 243.28 14.00 re f
+0.850 0.880 0.920 RG
+0.50 w 310.00 707.89 m 553.28 707.89 l S
 0.900 0.400 0.400 rg
-1.00 w 299.00 554.89 6.00 6.00 re f
+1.00 w 316.00 711.89 4.50 4.50 re f
 0.900 0.700 0.300 rg
-1.00 w 308.00 554.89 6.00 6.00 re f
+1.00 w 323.00 711.89 4.50 4.50 re f
 0.400 0.800 0.400 rg
-1.00 w 317.00 554.89 6.00 6.00 re f
-0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 554.89 Td (UI Screen & Input/Output Example: Download Answer Null CDR) Tj ET
-1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 492.89 254.28 51.00 re B
-0.300 0.350 0.400 rg
-BT /F2 7 Tf 305.00 531.89 Td (CAMPAIGN FILTER:) Tj ET
+1.00 w 330.00 711.89 4.50 4.50 re f
+0.400 0.450 0.550 rg
+BT /F2 6.8 Tf 340.00 711.39 Td (UI Mockup & Live Output Preview) Tj ET
+0.200 0.300 0.500 rg
+BT /F2 6.5 Tf 318.00 695.89 Td (Campaign: MTF-CROSS SELL \(8,420 rows\)) Tj ET
 0.950 0.970 1.000 rg
-0.60 w 305.00 517.89 95.00 12.00 re B
+0.40 w 318.00 661.89 60.00 30.00 re B
+0.400 0.450 0.500 rg
+BT /F1 5.5 Tf 320.00 685.89 Td (Paste IDs \(e.g. 10245, 10246\)) Tj ET
+0.920 0.950 0.990 rg
+1.00 w 382.00 683.89 163.28 8.00 re f
 0.100 0.200 0.400 rg
-BT /F1 7 Tf 309.00 521.89 Td (MTF-CROSS SELL) Tj ET
-0.300 0.350 0.400 rg
-BT /F2 7 Tf 411.00 531.89 Td (GATEWAY DISP:) Tj ET
-0.950 0.970 1.000 rg
-0.60 w 411.00 517.89 85.00 12.00 re B
-0.100 0.200 0.400 rg
-BT /F1 7 Tf 415.00 521.89 Td (ANSWER) Tj ET
-0.200 0.300 0.400 rg
-BT /F1 7 Tf 305.00 496.89 Td (CRM DISPOSITION:  \(o\) Keep null rows only  |  \( \) Clear column) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 7.2 Tf 299.00 478.89 Td (LIVE FILTER FUNNEL / CHIPS:) Tj ET
-0.930 0.950 0.980 rg
-0.800 0.850 0.900 RG
-0.60 w 299.00 456.89 59.07 20.00 re B
-0.400 0.450 0.500 rg
-BT /F1 6 Tf 303.00 468.89 Td (Total Rows) Tj ET
-0.100 0.150 0.200 rg
-BT /F2 7.5 Tf 303.00 459.89 Td (18,420) Tj ET
-0.930 0.950 0.980 rg
-0.800 0.850 0.900 RG
-0.60 w 364.07 456.89 59.07 20.00 re B
-0.400 0.450 0.500 rg
-BT /F1 6 Tf 368.07 468.89 Td (Campaign) Tj ET
-0.100 0.150 0.200 rg
-BT /F2 7.5 Tf 368.07 459.89 Td (12,100) Tj ET
-0.930 0.950 0.980 rg
-0.800 0.850 0.900 RG
-0.60 w 429.14 456.89 59.07 20.00 re B
-0.400 0.450 0.500 rg
-BT /F1 6 Tf 433.14 468.89 Td (Gateway) Tj ET
-0.100 0.150 0.200 rg
-BT /F2 7.5 Tf 433.14 459.89 Td (4,320) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.60 w 494.21 456.89 59.07 20.00 re B
+BT /F2 5.8 Tf 386.00 688.89 Td (Lead ID | Dispo | Remark Added) Tj ET
+0.200 0.500 0.200 rg
+BT /F1 5.5 Tf 386.00 675.89 Td (10245 | Interested | Call Back on Monday) Tj ET
+0.200 0.500 0.200 rg
+BT /F1 5.5 Tf 386.00 665.89 Td (10246 | Interested | Shared Quotation via WA) Tj ET
+0.060 0.720 0.500 rg
+1.00 w 318.00 614.89 227.28 12.00 re f
 1.000 1.000 1.000 rg
-BT /F1 6 Tf 498.21 468.89 Td (Final Null) Tj ET
+BT /F2 6.5 Tf 351.00 618.89 Td (Download Enhanced Excel \(.xlsx\)) Tj ET
+0.995 0.995 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 429.89 523.28 155.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 560.89 523.28 24.00 re f
+0.820 0.860 0.920 RG
+0.60 w 36.00 560.89 m 559.28 560.89 l S
+0.996 0.004 0.408 rg
+1.00 w 44.00 563.89 18.00 18.00 re f
 1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 498.21 459.89 Td (840) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 299.00 438.89 140.00 15.00 re B
+BT /F2 10 Tf 50.00 568.89 Td (2) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 11 Tf 68.00 569.89 Td (Excel to JSON Converter) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 8 Tf 266.00 569.89 Td (site/tools/2-excel-to-json) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 548.89 Td (PURPOSE & BUSINESS IMPACT:) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.8 Tf 46.00 538.89 Td (Convert complex multi-sheet Excel spreadsheets into clean, structured JSON objects.) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 524.89 Td (STEP-BY-STEP OPERATION:) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 513.89 Td (1.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 513.89 Td (Drop multi-sheet workbook \(.xlsx, .xls\) into converter.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 502.39 Td (2.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 502.39 Td (Choose the exact sheet to convert from the dropdown list.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 490.89 Td (3.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 490.89 Td (Toggle 'Trim whitespace' and 'Include empty sub_disposition' options.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 479.39 Td (4.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 479.39 Td (Live JSON preview renders instantly with syntax validation.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 467.89 Td (5.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 467.89 Td (Click 'Copy JSON' for 1-click clipboard paste or 'Download JSON File'.) Tj ET
 1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 304.00 442.89 Td (Convert & Download XLSX \(840 rows\)) Tj ET
-0.100 0.500 0.200 rg
-BT /F2 6.8 Tf 447.00 442.89 Td (Output: sample_filtered.xlsx ready) Tj ET
-0.8 0.8 0.8 RG
-0.5 w 36.00 33.00 m 559.28 33.00 l S
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 36.00 22.00 Td (MTF / CDR Toolkit - Visual Illustrated User Manual (English)) Tj ET
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 511.28 22.00 Td (Page 2 of 4) Tj ET
+0.850 0.880 0.920 RG
+0.60 w 310.00 437.89 243.28 115.00 re B
+0.960 0.970 0.990 rg
+1.00 w 310.00 538.89 243.28 14.00 re f
+0.850 0.880 0.920 RG
+0.50 w 310.00 538.89 m 553.28 538.89 l S
+0.900 0.400 0.400 rg
+1.00 w 316.00 542.89 4.50 4.50 re f
+0.900 0.700 0.300 rg
+1.00 w 323.00 542.89 4.50 4.50 re f
+0.400 0.800 0.400 rg
+1.00 w 330.00 542.89 4.50 4.50 re f
+0.400 0.450 0.550 rg
+BT /F2 6.8 Tf 340.00 542.39 Td (UI Mockup & Live Output Preview) Tj ET
+0.200 0.300 0.500 rg
+BT /F2 6.5 Tf 318.00 526.89 Td (Workbook: Leads_October.xlsx \(3 Sheets\)) Tj ET
+0.980 0.980 0.980 rg
+0.40 w 318.00 461.89 227.28 61.00 re B
+0.100 0.100 0.100 rg
+BT /F2 6 Tf 322.00 514.89 Td ([) Tj ET
+0.100 0.300 0.700 rg
+BT /F1 5.5 Tf 326.00 506.89 Td (  { "lead_id": "90214", "campaign": "MTF",) Tj ET
+0.100 0.300 0.700 rg
+BT /F1 5.5 Tf 326.00 498.89 Td (    "phone": "+919876543210", "status": "ANSWER",) Tj ET
+0.100 0.300 0.700 rg
+BT /F1 5.5 Tf 326.00 490.89 Td (    "sub_disposition": "Interested" }, ...) Tj ET
+0.100 0.100 0.100 rg
+BT /F2 6 Tf 322.00 482.89 Td (]) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 318.00 445.89 111.64 12.00 re f
+1.000 1.000 1.000 rg
+BT /F2 6.2 Tf 326.00 449.89 Td (Copy JSON \(Ctrl+C\)) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 433.64 445.89 111.64 12.00 re f
+1.000 1.000 1.000 rg
+BT /F2 6.2 Tf 441.64 449.89 Td (Download .json) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 2 of 8) Tj ET
 
 endstream
 endobj
@@ -423,210 +363,170 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
 endobj
 10 0 obj
-<< /Length 8120 >>
+<< /Length 6680 >>
 stream
-0.120 0.350 0.800 rg
-1.00 w 36.00 799.89 523.28 2.50 re f
-0.080 0.200 0.600 rg
-BT /F2 16 Tf 36.00 813.89 Td (MTF CDR Toolkit - Illustrated User Manual \(Page 3\)) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
+1.000 1.000 1.000 rg
+BT /F2 13.5 Tf 50.00 788.89 Td (TOOL 3 & TOOL 4: API CLIENT & ANSWER NULL FILTER) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Hardened SSRF Proxy Gateway & Dialed Call Segregation) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (MODULES 3 & 4) Tj ET
+0.995 0.995 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 598.89 523.28 155.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 729.89 523.28 24.00 re f
+0.820 0.860 0.920 RG
+0.60 w 36.00 729.89 m 559.28 729.89 l S
+0.996 0.004 0.408 rg
+1.00 w 44.00 732.89 18.00 18.00 re f
+1.000 1.000 1.000 rg
+BT /F2 10 Tf 50.00 737.89 Td (3) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 11 Tf 68.00 738.89 Td (API Request Sender \(SSRF Proxy\)) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 8 Tf 266.00 738.89 Td (site/tools/3-api-sender) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 717.89 Td (PURPOSE & BUSINESS IMPACT:) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.8 Tf 46.00 707.89 Td (Test CRM endpoints & send JSON payloads securely through native backend proxy.) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 693.89 Td (STEP-BY-STEP OPERATION:) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 682.89 Td (1.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 682.89 Td (Enter Target Endpoint URL \(HTTPS protocol required\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 671.39 Td (2.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 671.39 Td (Select HTTP Method \(POST, GET, PUT, PATCH, DELETE\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 659.89 Td (3.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 659.89 Td (Paste Authorization Bearer token or custom headers.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 648.39 Td (4.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 648.39 Td (Paste JSON payload into the Body editor \(can be copied from Tool 2\).) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 636.89 Td (5.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 636.89 Td (Click 'Send Request' - request is forwarded via backend SSRF proxy.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 625.39 Td (6.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 625.39 Td (Inspect HTTP response status, execution latency, and formatted response body.) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 310.00 606.89 243.28 115.00 re B
+0.960 0.970 0.990 rg
+1.00 w 310.00 707.89 243.28 14.00 re f
+0.850 0.880 0.920 RG
+0.50 w 310.00 707.89 m 553.28 707.89 l S
+0.900 0.400 0.400 rg
+1.00 w 316.00 711.89 4.50 4.50 re f
+0.900 0.700 0.300 rg
+1.00 w 323.00 711.89 4.50 4.50 re f
+0.400 0.800 0.400 rg
+1.00 w 330.00 711.89 4.50 4.50 re f
+0.400 0.450 0.550 rg
+BT /F2 6.8 Tf 340.00 711.39 Td (UI Mockup & Live Output Preview) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 6.5 Tf 318.00 695.89 Td (POST  https://api.crm.waanee.ai/v1/leads) Tj ET
 0.400 0.450 0.500 rg
-BT /F1 9 Tf 36.00 788.89 Td (Visual Operating Guide with UI Mockups & Step-by-Step Examples \(Tools 5 & 6\)) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 757.89 22.00 22.00 re f
-1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 762.89 Td (5) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 763.89 Td (Answer Null Lead Data) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 763.89 Td (File: site/tools/5-lead-to-answer-null.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 752.89 m 559.28 752.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 740.89 Td (PURPOSE & USE CASE:) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 729.89 Td (Transform filtered Answer Null records into the standard 57-column CRM import spreadsheet template for re-allocation.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 714.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 702.89 Td (1.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 702.89 Td (Upload Lead Data: Drop your Lead Data spreadsheet \(.xlsx\) into upload zone.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 689.89 Td (2.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 689.89 Td (Set Date & Time: Pick campaign batch timestamp via 'date_entered' picker.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 676.89 Td (3.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 676.89 Td (Auto-Format: Tool automatically calculates Excel 1900 date serial numbers.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 663.89 Td (4.) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 663.89 Td (Download: Click 'Convert & Download' to save [Date]_MTF_ANSWER_NULL.xlsx.) Tj ET
-0.985 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 293.00 613.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 730.89 266.28 18.00 re B
-0.900 0.400 0.400 rg
-1.00 w 299.00 735.89 6.00 6.00 re f
-0.900 0.700 0.300 rg
-1.00 w 308.00 735.89 6.00 6.00 re f
-0.400 0.800 0.400 rg
-1.00 w 317.00 735.89 6.00 6.00 re f
-0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 735.89 Td (UI Screen & Input/Output Example: Answer Null Lead Data) Tj ET
-1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 704.89 254.28 22.00 re B
-0.200 0.400 0.700 rg
-BT /F1 7.5 Tf 305.00 712.89 Td ([+] Upload Lead Data: lead_export_04nov.xlsx) Tj ET
+BT /F1 5.5 Tf 318.00 686.89 Td (Header: Authorization: Bearer eyJhbGciOi...) Tj ET
 0.920 0.980 0.940 rg
-0.500 0.800 0.600 RG
-0.60 w 473.28 708.89 93.20 13.00 re B
+0.40 w 318.00 628.89 227.28 55.00 re B
 0.080 0.500 0.200 rg
-BT /F2 7.5 Tf 478.28 712.39 Td (Ready: 840 leads) Tj ET
-0.970 0.980 0.990 rg
-0.60 w 299.00 684.89 254.28 16.00 re B
-0.200 0.250 0.300 rg
-BT /F1 7 Tf 305.00 691.89 Td (date_entered: [ 2026-11-04  14:30 ] \(Auto-formats Excel 1900 date serial number\)) Tj ET
-1.000 1.000 1.000 rg
-0.70 w 299.00 639.89 254.28 44.00 re B
-0.920 0.940 0.970 rg
-1.00 w 299.00 671.89 254.28 12.00 re f
-0.200 0.300 0.500 rg
-BT /F2 6.8 Tf 303.00 675.89 Td (CRM 57-COLUMN EXPORT SCHEMA PREVIEW) Tj ET
-0.300 0.350 0.450 rg
-BT /F2 6.5 Tf 303.00 661.89 Td (id | full_name | parent_id | sub_disposition | call_id | date_entered | status ...) Tj ET
+BT /F2 6 Tf 322.00 675.89 Td (STATUS: 200 OK  |  Time: 182ms  |  Size: 412 B) Tj ET
 0.100 0.200 0.300 rg
-BT /F1 6.5 Tf 303.00 651.89 Td (1  | Rahul S.  | 193868    | Dropped Conv    | 0906... | 04/11/2026   | Held   ...) Tj ET
+BT /F1 5.5 Tf 322.00 665.89 Td ({ "success": true, "inserted_count": 142,) Tj ET
 0.100 0.200 0.300 rg
-BT /F1 6.5 Tf 303.00 641.89 Td (2  | Sneha P.  | 193874    | Connected Exec  | 0984... | 04/11/2026   | Held   ...) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 299.00 619.89 130.00 15.00 re B
+BT /F1 5.5 Tf 322.00 657.89 Td (  "batch_id": "BAT_20261112_01" }) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 318.00 614.89 227.28 11.00 re f
 1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 304.00 623.89 Td (Convert & Download CRM Sheet) Tj ET
-0.100 0.500 0.200 rg
-BT /F2 6.8 Tf 437.00 623.89 Td (Generated: 04_Nov_MTF_ANSWER_NULL.xlsx) Tj ET
-0.140 0.420 0.850 rg
-1.00 w 36.00 576.89 22.00 22.00 re f
+BT /F2 6.2 Tf 346.00 618.39 Td (Send Request via SSRF Gateway) Tj ET
+0.995 0.995 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 429.89 523.28 155.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 560.89 523.28 24.00 re f
+0.820 0.860 0.920 RG
+0.60 w 36.00 560.89 m 559.28 560.89 l S
+0.996 0.004 0.408 rg
+1.00 w 44.00 563.89 18.00 18.00 re f
 1.000 1.000 1.000 rg
-BT /F2 11 Tf 43.00 581.89 Td (6) Tj ET
-0.080 0.150 0.250 rg
-BT /F2 12.5 Tf 64.00 582.89 Td (Sub-Disposition Pivot Converter) Tj ET
-0.500 0.550 0.600 rg
-BT /F1 8 Tf 409.28 582.89 Td (File: site/tools/6-sub-disposition-pivot.html) Tj ET
-0.880 0.900 0.940 RG
-0.80 w 36.00 571.89 m 559.28 571.89 l S
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 559.89 Td (PURPOSE & USE CASE:) Tj ET
+BT /F2 10 Tf 50.00 568.89 Td (4) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 11 Tf 68.00 569.89 Td (Answer Null CDR Filter) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 8 Tf 266.00 569.89 Td (site/tools/4-answer-null-cdr) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 548.89 Td (PURPOSE & BUSINESS IMPACT:) Tj ET
 0.250 0.300 0.350 rg
-BT /F1 8.2 Tf 40.00 548.89 Td (Generate live Sub-Disposition pivot tables, compute Call Connectivity %, and export 2x retina PNG graphics for WhatsApp/Email.) Tj ET
-0.200 0.400 0.700 rg
-BT /F2 8 Tf 36.00 533.89 Td (STEP-BY-STEP WORKFLOW:) Tj ET
+BT /F1 7.8 Tf 46.00 538.89 Td (Identify calls that connected at telecom gateway but dropped before agent CRM assignment.) Tj ET
 0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 521.89 Td (1.) Tj ET
+BT /F2 7.8 Tf 46.00 524.89 Td (STEP-BY-STEP OPERATION:) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 513.89 Td (1.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 521.89 Td (Upload File: Drop your CDR CSV or Excel file into the upload zone.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 508.89 Td (2.) Tj ET
+BT /F1 7.6 Tf 58.00 513.89 Td (Upload raw daily dialer export CDR file.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 502.39 Td (2.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 508.89 Td (Instant Analysis: Review Pivot table counts and Call Connectivity %.) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 495.89 Td (3.) Tj ET
+BT /F1 7.6 Tf 58.00 502.39 Td (Automatic detection filters: Gateway = 'Answer' AND CRM = 'null' / blank.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 490.89 Td (3.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 495.89 Td (One-Click Share: Click 'Copy screenshot' to paste directly in WhatsApp \(Ctrl+V\).) Tj ET
-0.150 0.450 0.850 rg
-BT /F2 8 Tf 40.00 482.89 Td (4.) Tj ET
+BT /F1 7.6 Tf 58.00 490.89 Td (View segregation summary: Total calls vs Answer Null count.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 479.39 Td (4.) Tj ET
 0.200 0.250 0.300 rg
-BT /F1 8 Tf 52.00 482.89 Td (Spreadsheet Download: Click 'Download Excel' or 'Download CSV'.) Tj ET
-0.985 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 293.00 432.89 266.28 135.00 re B
-0.920 0.940 0.970 rg
-0.80 w 293.00 549.89 266.28 18.00 re B
+BT /F1 7.6 Tf 58.00 479.39 Td (Isolate numbers for immediate automated redialing campaigns.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 467.89 Td (5.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 467.89 Td (Click 'Download Filtered Excel' to generate clean list for campaign manager.) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 310.00 437.89 243.28 115.00 re B
+0.960 0.970 0.990 rg
+1.00 w 310.00 538.89 243.28 14.00 re f
+0.850 0.880 0.920 RG
+0.50 w 310.00 538.89 m 553.28 538.89 l S
 0.900 0.400 0.400 rg
-1.00 w 299.00 554.89 6.00 6.00 re f
+1.00 w 316.00 542.89 4.50 4.50 re f
 0.900 0.700 0.300 rg
-1.00 w 308.00 554.89 6.00 6.00 re f
+1.00 w 323.00 542.89 4.50 4.50 re f
 0.400 0.800 0.400 rg
-1.00 w 317.00 554.89 6.00 6.00 re f
-0.300 0.350 0.450 rg
-BT /F2 7.5 Tf 329.00 554.89 Td (UI Screen & Input/Output Example: Sub-Disposition Pivot Converter) Tj ET
+1.00 w 330.00 542.89 4.50 4.50 re f
+0.400 0.450 0.550 rg
+BT /F2 6.8 Tf 340.00 542.39 Td (UI Mockup & Live Output Preview) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 6.5 Tf 318.00 526.89 Td (Rule: GATEWAY = 'Answer' AND CRM = 'null') Tj ET
+0.920 0.940 0.980 rg
+1.00 w 318.00 514.89 227.28 8.00 re f
+0.100 0.200 0.400 rg
+BT /F2 5.8 Tf 320.00 519.89 Td (Phone | Gateway Dispo | CRM Dispo | Action) Tj ET
+0.800 0.200 0.200 rg
+BT /F1 5.5 Tf 320.00 507.89 Td (+919876501234 | Answer | null | Segregated) Tj ET
+0.800 0.200 0.200 rg
+BT /F1 5.5 Tf 320.00 498.89 Td (+919876505678 | Answer | null | Segregated) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 6 Tf 320.00 487.89 Td (Total Answer Null Identified: 412 calls) Tj ET
+0.060 0.720 0.500 rg
+1.00 w 318.00 445.89 227.28 11.00 re f
 1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 299.00 458.89 122.14 85.00 re B
-0.870 0.920 0.970 rg
-1.00 w 299.00 531.89 122.14 12.00 re f
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 303.00 535.89 Td (CRM Sub-Disposition) Tj ET
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 397.14 535.89 Td (Count) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 303.00 521.89 Td (Interested) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 397.14 521.89 Td (1,240) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 303.00 510.89 Td (Dropped During Conv) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 397.14 510.89 Td (480) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 303.00 499.89 Td (Connected to executive) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 397.14 499.89 Td (320) Tj ET
-0.870 0.920 0.970 rg
-1.00 w 299.00 458.89 122.14 11.00 re f
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 303.00 461.89 Td (Grand Total) Tj ET
-0.200 0.400 0.800 rg
-BT /F2 6.8 Tf 397.14 461.89 Td (2,040) Tj ET
-1.000 1.000 1.000 rg
-0.800 0.850 0.900 RG
-0.70 w 431.14 458.89 122.14 85.00 re B
-0.870 0.920 0.970 rg
-1.00 w 431.14 531.89 122.14 12.00 re f
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 435.14 535.89 Td (Call Performance Metrics) Tj ET
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 529.28 535.89 Td (Value) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 435.14 521.89 Td (ANSWER_NULL Calls) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 529.28 521.89 Td (840) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 435.14 510.89 Td (Connected Calls) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 529.28 510.89 Td (2,040) Tj ET
-0.200 0.250 0.300 rg
-BT /F1 6.5 Tf 435.14 499.89 Td (Total Dialed Calls) Tj ET
-0.100 0.200 0.400 rg
-BT /F1 6.5 Tf 529.28 499.89 Td (15,000) Tj ET
-0.870 0.920 0.970 rg
-1.00 w 431.14 458.89 122.14 11.00 re f
-0.100 0.200 0.400 rg
-BT /F2 6.8 Tf 435.14 461.89 Td (Connectivity %) Tj ET
-0.100 0.550 0.200 rg
-BT /F2 6.8 Tf 525.28 461.89 Td (13.60%) Tj ET
-0.140 0.420 0.850 rg
-0.100 0.350 0.750 RG
-0.80 w 299.00 438.89 135.00 14.00 re B
-1.000 1.000 1.000 rg
-BT /F2 7.5 Tf 304.00 442.89 Td (Copy Screenshot \(WhatsApp Ctrl+V\)) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 439.00 438.89 65.00 14.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 444.00 442.89 Td (Download PNG) Tj ET
-0.950 0.970 0.990 rg
-0.780 0.820 0.880 RG
-0.80 w 509.00 438.89 65.00 14.00 re B
-0.200 0.300 0.450 rg
-BT /F1 7.5 Tf 514.00 442.89 Td (Download Excel) Tj ET
-0.8 0.8 0.8 RG
-0.5 w 36.00 33.00 m 559.28 33.00 l S
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 36.00 22.00 Td (MTF / CDR Toolkit - Visual Illustrated User Manual (English)) Tj ET
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 511.28 22.00 Td (Page 3 of 4) Tj ET
+BT /F2 6.2 Tf 336.00 449.39 Td (Download Filtered Answer Null Excel \(.xlsx\)) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 3 of 8) Tj ET
 
 endstream
 endobj
@@ -634,130 +534,715 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
 endobj
 12 0 obj
-<< /Length 4563 >>
+<< /Length 6023 >>
 stream
-0.120 0.350 0.800 rg
-1.00 w 36.00 799.89 523.28 2.50 re f
-0.080 0.200 0.600 rg
-BT /F2 16 Tf 36.00 813.89 Td (MTF CDR Toolkit - Operations Reference & QA Guide) Tj ET
-0.400 0.450 0.500 rg
-BT /F1 9 Tf 36.00 788.89 Td (Complete End-to-End Workflow Diagram & QA Troubleshooting Matrix) Tj ET
-0.980 0.990 1.000 rg
-0.800 0.850 0.920 RG
-1.00 w 36.00 655.89 523.28 120.00 re B
-0.120 0.350 0.800 rg
-1.00 w 36.00 759.89 523.28 16.00 re f
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
 1.000 1.000 1.000 rg
-BT /F2 8.5 Tf 44.00 763.89 Td (END-TO-END DATA WORKFLOW PIPELINE) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 743.89 Td (1. Raw Dialer CSV) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 743.89 Td (-> Raw export from dialer containing all call legs) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 729.89 Td (2. Tool #4 \(Answer Null\)) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 729.89 Td (-> Isolate answered calls with missing CRM status) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 715.89 Td (3. Tool #5 \(Lead Formatter\)) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 715.89 Td (-> Map to 57-column CRM re-upload template) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 701.89 Td (4. Tool #1 \(Remark Adder\)) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 701.89 Td (-> Add QA/Agent remarks to Interested leads) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 687.89 Td (5. Tool #2 -> Tool #3) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 687.89 Td (-> Convert to JSON payload and POST to CRM API) Tj ET
-0.100 0.300 0.700 rg
-BT /F2 7.8 Tf 48.00 673.89 Td (6. Tool #6 \(Pivot & Stats\)) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.5 Tf 176.00 673.89 Td (-> Generate Connectivity % and WhatsApp report card) Tj ET
-0.100 0.200 0.500 rg
-BT /F2 9 Tf 36.00 637.89 Td (QA CHECKLIST & TROUBLESHOOTING MATRIX:) Tj ET
+BT /F2 13.5 Tf 50.00 788.89 Td (TOOL 5 & TOOL 6: CRM LEAD FORMATTING & PORTAL FETCH) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (57-Column Mapping & Direct Waanee Portal Integration) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (MODULES 5 & 6) Tj ET
+0.995 0.995 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 618.89 523.28 135.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 729.89 523.28 24.00 re f
+0.820 0.860 0.920 RG
+0.60 w 36.00 729.89 m 559.28 729.89 l S
+0.996 0.004 0.408 rg
+1.00 w 44.00 732.89 18.00 18.00 re f
 1.000 1.000 1.000 rg
+BT /F2 10 Tf 50.00 737.89 Td (5) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 11 Tf 68.00 738.89 Td (Lead to Answer Null Generator) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 8 Tf 266.00 738.89 Td (site/tools/5-lead-to-answer-null) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 717.89 Td (PURPOSE & BUSINESS IMPACT:) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.8 Tf 46.00 707.89 Td (Format isolated Answer Null records directly into CRM's official 57-field upload format.) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.8 Tf 46.00 693.89 Td (STEP-BY-STEP OPERATION:) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 682.89 Td (1.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 682.89 Td (Input Answer Null records generated from Tool 4.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 671.39 Td (2.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 671.39 Td (Mapper maps Phone, Contact Name, DID, and custom metadata fields.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 659.89 Td (3.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 659.89 Td (Generates all 57 columns required by CRM bulk lead ingestion API.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.8 Tf 46.00 648.39 Td (4.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.6 Tf 58.00 648.39 Td (Ensures zero schema rejection errors during daily lead re-injection.) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 310.00 626.89 243.28 95.00 re B
+0.960 0.970 0.990 rg
+1.00 w 310.00 707.89 243.28 14.00 re f
+0.850 0.880 0.920 RG
+0.50 w 310.00 707.89 m 553.28 707.89 l S
+0.900 0.400 0.400 rg
+1.00 w 316.00 711.89 4.50 4.50 re f
+0.900 0.700 0.300 rg
+1.00 w 323.00 711.89 4.50 4.50 re f
+0.400 0.800 0.400 rg
+1.00 w 330.00 711.89 4.50 4.50 re f
+0.400 0.450 0.550 rg
+BT /F2 6.8 Tf 340.00 711.39 Td (UI Mockup & Live Output Preview) Tj ET
+0.200 0.300 0.500 rg
+BT /F2 6.5 Tf 318.00 695.89 Td (Standard 57-Column CRM Lead Format) Tj ET
+0.960 0.970 0.990 rg
+0.40 w 318.00 648.89 227.28 45.00 re B
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 320.00 683.89 Td (Lead_ID) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 320.00 673.89 Td (Val_Lea) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 348.00 683.89 Td (First_Name) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 348.00 673.89 Td (Val_Fir) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 376.00 683.89 Td (Phone_1) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 376.00 673.89 Td (Val_Pho) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 404.00 683.89 Td (Campaign) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 404.00 673.89 Td (Val_Cam) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 432.00 683.89 Td (Status) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 432.00 673.89 Td (Val_Sta) Tj ET
+0.100 0.300 0.600 rg
+BT /F2 5.2 Tf 460.00 683.89 Td (Custom_1..52) Tj ET
+0.300 0.350 0.400 rg
+BT /F1 5.0 Tf 460.00 673.89 Td (Val_Cus) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 318.00 634.89 227.28 11.00 re f
+1.000 1.000 1.000 rg
+BT /F2 6.2 Tf 341.00 638.39 Td (Export CRM Re-Upload Template \(.xlsx\)) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 10 Tf 36.00 604.89 Td (TOOL 6: SUB-DISPOSITION PIVOT CONVERTER \(DUAL-MODE CAPABILITY\)) Tj ET
+0.990 1.000 0.990 rg
+0.700 0.850 0.750 RG
+0.80 w 36.00 417.89 523.28 175.00 re B
+0.060 0.720 0.500 rg
+1.00 w 36.00 572.89 523.28 20.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.8 Tf 46.00 578.89 Td (DIRECT WAANEE DIAL PORTAL FETCH \(API\) vs MANUAL FILE UPLOAD) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 8 Tf 46.00 557.89 Td (MODE 1: [FILE] MANUAL FILE UPLOAD) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 46.00 545.89 Td (Traditional workflow: Drag and drop exported) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 46.00 535.89 Td (CSV/XLSX file from your local computer.) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 46.00 525.89 Td (Works offline with zero internet dependency.) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8 Tf 305.64 557.89 Td (MODE 2: [API] DIRECT DIAL PORTAL FETCH) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 305.64 545.89 Td (Matches portal screen \(msl.waanee.ai/#/charts\):) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 305.64 535.89 Td (- Call Type: Predictive, Manual, Inbound) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 305.64 525.89 Td (- From / To Date-Time Pickers) Tj ET
+0.200 0.250 0.300 rg
+BT /F1 7.5 Tf 305.64 515.89 Td (- Campaign: MTF-CROSS SELL, South Bot, etc.) Tj ET
+0.800 0.850 0.800 RG
+0.50 w 46.00 499.89 m 549.28 499.89 l S
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 46.00 485.89 Td (3 COLOR-CODED PORTAL ACTION BUTTONS:) Tj ET
+0.996 0.004 0.408 rg
+1.00 w 48.00 465.89 75.00 14.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7 Tf 60.00 469.89 Td (Search \(Pink\)) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.4 Tf 131.00 469.89 Td (Hits portal API, fetches live CDR, renders Pivot table & preview) Tj ET
+0.060 0.720 0.500 rg
+1.00 w 48.00 447.89 75.00 14.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7 Tf 60.00 451.89 Td (Clear \(Green\)) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.4 Tf 131.00 451.89 Td (Resets From/To timestamps and Campaign filters to default) Tj ET
+0.010 0.520 0.780 rg
+1.00 w 48.00 429.89 75.00 14.00 re f
+1.000 1.000 1.000 rg
+BT /F2 7 Tf 60.00 433.89 Td (Export \(Cyan\)) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.4 Tf 131.00 433.89 Td (Immediately downloads the raw CDR CSV file directly to your PC) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 4 of 8) Tj ET
+
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 5182 >>
+stream
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
+1.000 1.000 1.000 rg
+BT /F2 13.5 Tf 50.00 788.89 Td (TOOL 6: AUTOMATED PIVOT TABLE & 8 PM DAILY SAVE) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Instant WhatsApp Report Cards & 2-Step Confirmation Modal) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (PIVOT & 8 PM SAVE) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 593.89 523.28 160.00 re B
+0.120 0.180 0.300 rg
+1.00 w 36.00 733.89 523.28 20.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 46.00 739.89 Td (SUB-DISPOSITION PIVOT & CALL CONNECTIVITY REPORT) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 8 Tf 48.00 719.89 Td (SUB-DISPOSITION BREAKDOWN:) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 707.89 Td (Interested) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 707.89 Td (1,240 calls) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 695.39 Td (Connected to an executive) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 695.39 Td (820 calls) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 682.89 Td (Call back) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 682.89 Td (615 calls) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 670.39 Td (Need time to think) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 670.39 Td (410 calls) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 657.89 Td (Not Interested) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 657.89 Td (2,150 calls) Tj ET
+0.250 0.180 0.300 rg
+BT /F1 7.2 Tf 50.00 645.39 Td (null \(Agent missed tag\)) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 226.00 645.39 Td (185 calls) Tj ET
+0.920 0.950 0.990 rg
+1.00 w 46.00 630.89 230.00 11.00 re f
+0.120 0.180 0.300 rg
+BT /F2 7.2 Tf 50.00 632.89 Td (Grand Total) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.2 Tf 226.00 632.89 Td (5,420 calls) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 8 Tf 301.00 719.89 Td (CONNECTIVITY METRICS FORMULA:) Tj ET
+0.960 0.980 1.000 rg
+0.40 w 301.00 701.89 250.00 18.00 re B
+0.120 0.180 0.300 rg
+BT /F2 7.4 Tf 308.00 709.89 Td (ANSWER_NULL Calls) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 496.00 709.89 Td (412) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 6.5 Tf 308.00 703.39 Td (Gateway Answer + CRM Null) Tj ET
+0.960 0.980 1.000 rg
+0.40 w 301.00 678.89 250.00 18.00 re B
+0.120 0.180 0.300 rg
+BT /F2 7.4 Tf 308.00 686.89 Td (Connected Calls) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 496.00 686.89 Td (3,890) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 6.5 Tf 308.00 680.39 Td (CRM = 'Contacted') Tj ET
+0.960 0.980 1.000 rg
+0.40 w 301.00 655.89 250.00 18.00 re B
+0.120 0.180 0.300 rg
+BT /F2 7.4 Tf 308.00 663.89 Td (Total Dialed Calls) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 496.00 663.89 Td (8,420) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 6.5 Tf 308.00 657.39 Td (Total Dialed Phone Attempts) Tj ET
+0.960 0.980 1.000 rg
+0.40 w 301.00 632.89 250.00 18.00 re B
+0.120 0.180 0.300 rg
+BT /F2 7.4 Tf 308.00 640.89 Td (Connectivity Rate) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 496.00 640.89 Td (46.20%) Tj ET
+0.450 0.500 0.600 rg
+BT /F1 6.5 Tf 308.00 634.39 Td (Connected / Total Dialed * 100) Tj ET
+0.980 1.000 0.980 rg
+0.500 0.850 0.600 RG
+1.00 w 36.00 414.89 523.28 165.00 re B
+0.060 0.720 0.500 rg
+1.00 w 36.00 557.89 523.28 22.00 re f
+1.000 1.000 1.000 rg
+BT /F2 9 Tf 46.00 564.89 Td (END-OF-DAY 8 PM SAVE: 2-STEP CONFIRMATION MODAL WORKFLOW) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 541.89 Td (Step 1: Single Page Button Click) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 541.89 Td (-> Click 'Save Daily Report \(8 PM\)' in green banner at bottom of tables.) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 525.89 Td (Step 2: 2-Step Modal Review) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 525.89 Td (-> Modal popup appears displaying verified snapshot of today's performance:) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 509.89 Td (         - Report Date & Campaign) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 509.89 Td (-> Verify date picker \(default: today's date\) & selected campaign.) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 493.89 Td (         - Total Calls & Dispositions) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 493.89 Td (-> Inspect total calls analyzed and category breakdown counts.) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 477.89 Td (         - Connected Calls & Rate %) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 477.89 Td (-> Review final connectivity percentage before locking into master records.) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 461.89 Td (Step 3: Single 'Confirm & Save' Click) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 461.89 Td (-> Click 'Confirm & Save' button - data is permanently written to database!) Tj ET
+0.100 0.450 0.200 rg
+BT /F2 7.8 Tf 50.00 445.89 Td (Permanent Dual-Storage Execution) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.5 Tf 221.00 445.89 Td (-> Writes to Browser Storage \(never lost on refresh\) + Supabase Cloud Database.) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 5 of 8) Tj ET
+
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 4976 >>
+stream
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
+1.000 1.000 1.000 rg
+BT /F2 13.5 Tf 50.00 788.89 Td (TOOL 7: DAILY ANALYTICS & MULTI-MONTH PERFORMANCE TRACKER) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Trend Analysis, Executive KPI Cards, Profit/Loss Visibility) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (MODULE 7) Tj ET
+0.960 0.980 1.000 rg
+0.750 0.850 0.980 RG
+0.80 w 36.00 721.89 523.28 32.00 re B
+0.150 0.450 0.850 rg
+1.00 w 36.00 721.89 4.00 32.00 re f
+0.150 0.450 0.850 rg
+BT /F2 8.5 Tf 48.00 740.89 Td (2-3 MONTHS CALL COMPARABILITY & PROFIT/LOSS TRACKING) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 8.2 Tf 48.00 729.89 Td (Monitor daily performance shifts over time, compare campaigns, analyze trend charts, and export master spreadsheets.) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 36.00 651.89 123.32 58.00 re B
+0.120 0.180 0.300 rg
+1.00 w 36.00 651.89 3.50 58.00 re f
+0.450 0.500 0.600 rg
+BT /F2 6.5 Tf 44.00 697.89 Td (TOTAL DIALED) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 13 Tf 44.00 679.89 Td (142,580) Tj ET
+0.500 0.550 0.600 rg
+BT /F1 6.0 Tf 44.00 659.89 Td (Overall Dial Attempts) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 169.32 651.89 123.32 58.00 re B
+0.996 0.004 0.408 rg
+1.00 w 169.32 651.89 3.50 58.00 re f
+0.450 0.500 0.600 rg
+BT /F2 6.5 Tf 177.32 697.89 Td (CONNECTED CALLS) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 13 Tf 177.32 679.89 Td (68,430) Tj ET
+0.500 0.550 0.600 rg
+BT /F1 6.0 Tf 177.32 659.89 Td (CRM Contacted calls) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 302.64 651.89 123.32 58.00 re B
+0.060 0.720 0.500 rg
+1.00 w 302.64 651.89 3.50 58.00 re f
+0.450 0.500 0.600 rg
+BT /F2 6.5 Tf 310.64 697.89 Td (AVG. CONNECTIVITY) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 13 Tf 310.64 679.89 Td (48.00%) Tj ET
+0.500 0.550 0.600 rg
+BT /F1 6.0 Tf 310.64 659.89 Td (Connected / Dialed) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.60 w 435.96 651.89 123.32 58.00 re B
+0.950 0.600 0.100 rg
+1.00 w 435.96 651.89 3.50 58.00 re f
+0.450 0.500 0.600 rg
+BT /F2 6.5 Tf 443.96 697.89 Td (ANSWER_NULL CALLS) Tj ET
+0.950 0.600 0.100 rg
+BT /F2 13 Tf 443.96 679.89 Td (4,120) Tj ET
+0.500 0.550 0.600 rg
+BT /F1 6.0 Tf 443.96 659.89 Td (Gateway Ans, CRM Null) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 462.89 523.28 175.00 re B
+0.940 0.960 0.990 rg
+1.00 w 36.00 617.89 523.28 20.00 re f
+0.120 0.180 0.300 rg
+BT /F2 8.5 Tf 46.00 623.89 Td (DAILY CALL VOLUME & CONNECTIVITY RATE TREND CHART) Tj ET
+0.400 0.450 0.550 rg
+BT /F1 7.5 Tf 316.00 623.89 Td (Filters: Last 7 Days  |  Last 30 Days  |  Last 90 Days  |  All Records) Tj ET
 0.800 0.850 0.900 RG
-0.80 w 36.00 490.89 523.28 135.00 re B
+0.80 w 56.00 487.89 m 539.28 487.89 l S
+0.120 0.180 0.300 rg
+1.00 w 66.00 487.89 14.00 60.00 re f
+0.996 0.004 0.408 rg
+1.00 w 81.00 487.89 14.00 32.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 70.00 477.89 Td (Nov 01) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 76.00 551.89 Td (46%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 126.41 487.89 14.00 75.00 re f
+0.996 0.004 0.408 rg
+1.00 w 141.41 487.89 14.00 42.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 130.41 477.89 Td (Nov 02) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 136.41 566.89 Td (49%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 186.82 487.89 14.00 55.00 re f
+0.996 0.004 0.408 rg
+1.00 w 201.82 487.89 14.00 28.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 190.82 477.89 Td (Nov 03) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 196.82 546.89 Td (44%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 247.23 487.89 14.00 85.00 re f
+0.996 0.004 0.408 rg
+1.00 w 262.23 487.89 14.00 52.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 251.23 477.89 Td (Nov 04) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 257.23 576.89 Td (51%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 307.64 487.89 14.00 95.00 re f
+0.996 0.004 0.408 rg
+1.00 w 322.64 487.89 14.00 60.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 311.64 477.89 Td (Nov 05) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 317.64 586.89 Td (53%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 368.05 487.89 14.00 90.00 re f
+0.996 0.004 0.408 rg
+1.00 w 383.05 487.89 14.00 56.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 372.05 477.89 Td (Nov 06) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 378.05 581.89 Td (52%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 428.46 487.89 14.00 70.00 re f
+0.996 0.004 0.408 rg
+1.00 w 443.46 487.89 14.00 38.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 432.46 477.89 Td (Nov 07) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 438.46 561.89 Td (47%) Tj ET
+0.120 0.180 0.300 rg
+1.00 w 488.87 487.89 14.00 80.00 re f
+0.996 0.004 0.408 rg
+1.00 w 503.87 487.89 14.00 46.00 re f
+0.400 0.450 0.550 rg
+BT /F1 6.5 Tf 492.87 477.89 Td (Nov 08) Tj ET
+0.060 0.720 0.500 rg
+BT /F2 6.5 Tf 498.87 571.89 Td (50%) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 6 of 8) Tj ET
+
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 4951 >>
+stream
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
+1.000 1.000 1.000 rg
+BT /F2 13.5 Tf 50.00 788.89 Td (SUPABASE CLOUD DATABASE & VERCEL HOSTING GUIDE) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Production Database Schema, Environment Variables, and Serverless Setup) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (DATABASE & DEPLOY) Tj ET
+0.985 0.990 1.000 rg
+0.750 0.850 0.950 RG
+0.80 w 36.00 578.89 523.28 175.00 re B
+0.120 0.180 0.300 rg
+1.00 w 36.00 733.89 523.28 20.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.5 Tf 46.00 739.89 Td (SUPABASE PRODUCTION DATABASE SETUP \(SQL EDITOR\)) Tj ET
+0.400 0.500 0.600 rg
+BT /F1 6.8 Tf 50.00 721.89 Td (-- 1. Create table daily_analytics \(Handles complete 8 PM daily records\)) Tj ET
+0.100 0.300 0.700 rg
+BT /F2 6.8 Tf 50.00 711.39 Td (CREATE TABLE IF NOT EXISTS daily_analytics \() Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 700.89 Td (  id              TEXT PRIMARY KEY,              -- Format: YYYY-MM-DD_CAMPAIGN) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 690.39 Td (  report_date     DATE NOT NULL,) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 679.89 Td (  campaign        TEXT DEFAULT 'All campaigns',) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 669.39 Td (  dialed          INTEGER DEFAULT 0,) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 658.89 Td (  connected       INTEGER DEFAULT 0,) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 648.39 Td (  connectivity    FLOAT DEFAULT 0,) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 637.89 Td (  answer_null     INTEGER DEFAULT 0,) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 627.39 Td (  dispositions    JSONB DEFAULT '{}'::jsonb,     -- Complete Sub-Disposition breakdown) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 616.89 Td (  created_at      TIMESTAMPTZ DEFAULT NOW\(\)) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 606.39 Td (\);) Tj ET
+0.200 0.300 0.400 rg
+BT /F1 6.8 Tf 50.00 595.89 Td () Tj ET
+0.400 0.500 0.600 rg
+BT /F1 6.8 Tf 50.00 585.39 Td (-- 2. Disable Row Level Security \(Backend handles HMAC-SHA256 authenticated access\)) Tj ET
+0.100 0.300 0.700 rg
+BT /F2 6.8 Tf 50.00 574.89 Td (ALTER TABLE daily_analytics DISABLE ROW LEVEL SECURITY;) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.940 RG
+0.80 w 36.00 406.89 523.28 160.00 re B
+0.996 0.004 0.408 rg
+1.00 w 36.00 546.89 523.28 20.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.5 Tf 46.00 552.89 Td (VERCEL CLOUD DEPLOYMENT & ENVIRONMENT VARIABLES SETTINGS) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 48.00 532.89 Td (Framework Preset:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 176.00 532.89 Td (Other \(Custom Static + Serverless\)) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 48.00 518.89 Td (Root Directory:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 176.00 518.89 Td (./ \(Repository root where vercel.json resides\)) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 48.00 504.89 Td (Build Command:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 176.00 504.89 Td (cd frontend && npm install --include=dev && npm run build) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 7.8 Tf 48.00 490.89 Td (Output Directory:) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 7.6 Tf 176.00 490.89 Td (frontend/dist) Tj ET
+0.850 0.880 0.920 RG
+0.50 w 46.00 480.89 m 549.28 480.89 l S
+0.996 0.004 0.408 rg
+BT /F2 8 Tf 48.00 468.89 Td (5 MANDATORY ENVIRONMENT VARIABLES \(Project Settings -> Environment Variables\):) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.2 Tf 50.00 454.89 Td (ADMIN_USER) Tj ET
+0.400 0.450 0.500 rg
+BT /F1 7.0 Tf 166.00 454.89 Td (Admin) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.0 Tf 366.00 454.89 Td (Username for application login) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.2 Tf 50.00 442.89 Td (ADMIN_PASS) Tj ET
+0.400 0.450 0.500 rg
+BT /F1 7.0 Tf 166.00 442.89 Td (Admin@123) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.0 Tf 366.00 442.89 Td (Strong password for authentication) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.2 Tf 50.00 430.89 Td (SESSION_SECRET) Tj ET
+0.400 0.450 0.500 rg
+BT /F1 7.0 Tf 166.00 430.89 Td (32+ char secret string) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.0 Tf 366.00 430.89 Td (Key used to sign HMAC-SHA256 session cookies) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.2 Tf 50.00 418.89 Td (SUPABASE_URL) Tj ET
+0.400 0.450 0.500 rg
+BT /F1 7.0 Tf 166.00 418.89 Td (https://coqzqvrkcrvodmbntlkf.supabase.co) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.0 Tf 366.00 418.89 Td (Supabase project REST endpoint) Tj ET
+0.150 0.450 0.850 rg
+BT /F2 7.2 Tf 50.00 406.89 Td (SUPABASE_KEY) Tj ET
+0.400 0.450 0.500 rg
+BT /F1 7.0 Tf 166.00 406.89 Td (sb_secret_TBZAT... \(Secret Key\)) Tj ET
+0.250 0.300 0.350 rg
+BT /F1 7.0 Tf 366.00 406.89 Td (Backend Secret Key for database read/write access) Tj ET
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 7 of 8) Tj ET
+
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 20 0 R >>
+endobj
+20 0 obj
+<< /Length 5807 >>
+stream
+0.120 0.180 0.300 rg
+1.00 w 36.00 767.89 523.28 36.00 re f
+0.996 0.004 0.408 rg
+1.00 w 36.00 767.89 5.00 36.00 re f
+1.000 1.000 1.000 rg
+BT /F2 13.5 Tf 50.00 788.89 Td (END-TO-END PIPELINE & QA TROUBLESHOOTING MATRIX) Tj ET
+0.800 0.850 0.920 rg
+BT /F1 8.5 Tf 50.00 776.89 Td (Operational Workflow Architecture & Common Issue Resolutions) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 8.5 Tf 479.28 783.89 Td (PIPELINE & QA) Tj ET
+0.985 0.990 1.000 rg
+0.800 0.850 0.920 RG
+1.00 w 36.00 633.89 523.28 120.00 re B
+0.120 0.180 0.300 rg
+1.00 w 36.00 735.89 523.28 18.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.5 Tf 46.00 740.89 Td (END-TO-END DAILY OPERATIONAL WORKFLOW PIPELINE) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 723.89 Td (1. Dial Portal \(msl.waanee.ai\)) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 723.89 Td (-> Direct API Fetch or Download Raw CDR CSV) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 711.39 Td (2. Tool 4 \(Answer Null CDR\)) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 711.39 Td (-> Segregate Answered calls missing CRM status for immediate re-dialing) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 698.89 Td (3. Tool 5 \(Lead Generator\)) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 698.89 Td (-> Format leads into standardized 57-column CRM upload template) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 686.39 Td (4. Tool 1 \(Remark Adder\)) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 686.39 Td (-> Add agent remarks / QA feedback to Interested leads) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 673.89 Td (5. Tool 2 -> Tool 3) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 673.89 Td (-> Convert to JSON payload and POST to CRM endpoint via SSRF Proxy) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 661.39 Td (6. Tool 6 \(Sub-Dispo Pivot\)) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 661.39 Td (-> Automated Pivot table + WhatsApp screenshot + Connectivity %) Tj ET
+0.996 0.004 0.408 rg
+BT /F2 7.4 Tf 50.00 648.89 Td (7. 8 PM Save -> Tool 7) Tj ET
+0.200 0.250 0.320 rg
+BT /F1 7.2 Tf 181.00 648.89 Td (-> 2-Step confirmation save to Supabase Cloud + Multi-month comparative dashboard) Tj ET
+1.000 1.000 1.000 rg
+0.850 0.880 0.920 RG
+0.80 w 36.00 416.89 523.28 205.00 re B
 0.920 0.940 0.980 rg
-1.00 w 36.00 607.89 523.28 18.00 re f
-0.100 0.200 0.400 rg
-BT /F2 8 Tf 44.00 612.89 Td (Observed Issue) Tj ET
-0.100 0.200 0.400 rg
-BT /F2 8 Tf 196.00 612.89 Td (Root Cause) Tj ET
-0.100 0.200 0.400 rg
-BT /F2 8 Tf 366.00 612.89 Td (Recommended Action) Tj ET
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 593.89 Td (Columns not found error) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 593.89 Td (File header names differ from expected names) Tj ET
+1.00 w 36.00 603.89 523.28 18.00 re f
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 46.00 608.89 Td (Observed Issue) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 211.00 608.89 Td (Probable Root Cause) Tj ET
+0.120 0.180 0.300 rg
+BT /F2 8 Tf 391.00 608.89 Td (Exact Solution) Tj ET
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 589.89 Td (Page refresh resets data) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 589.89 Td (Supabase environment variables not saved in Vercel) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 593.89 Td (Verify CAMPAIGN NAME, CRM SUB-DISPOSITION, RECORD ID) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 589.89 m 559.28 589.89 l S
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 575.89 Td (No rows matched filter) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 575.89 Td (Campaign name spelling or case mismatch) Tj ET
+BT /F1 6.8 Tf 391.00 589.89 Td (Add SUPABASE_URL & SUPABASE_KEY in Vercel Settings and Redeploy) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 585.89 m 551.28 585.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 571.89 Td (Columns not found error) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 571.89 Td (Raw CDR file has non-standard header names) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 575.89 Td (Ensure campaign is exact match to MTF-CROSS SELL) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 571.89 m 559.28 571.89 l S
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 557.89 Td (Extra IDs warned in Tool #1) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 557.89 Td (Pasted Lead IDs do not belong to filtered set) Tj ET
+BT /F1 6.8 Tf 391.00 571.89 Td (Verify headers match: CAMPAIGN NAME, CRM SUB-DISPOSITION) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 567.89 m 551.28 567.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 553.89 Td (No rows matched filter) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 553.89 Td (Campaign name spelling or uppercase/lowercase mismatch) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 557.89 Td (Double-check if lead IDs belong to the same campaign date) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 553.89 m 559.28 553.89 l S
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 539.89 Td (JSON shows empty sub_disp) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 539.89 Td (Checkbox 'Include empty sub_disposition' off) Tj ET
+BT /F1 6.8 Tf 391.00 553.89 Td (Select from Campaign filter dropdown \(case-insensitive auto match\)) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 549.89 m 551.28 549.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 535.89 Td (API Error 400 \(Private IP\)) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 535.89 Td (Target API URL points to localhost or private IP range) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 539.89 Td (Check the box in Tool #2 if null remarks are required) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 535.89 m 559.28 535.89 l S
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 521.89 Td (API Error 400 \(Private IP\)) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 521.89 Td (Endpoint URL points to localhost or private IP) Tj ET
+BT /F1 6.8 Tf 391.00 535.89 Td (Use public HTTPS domain. SSRF security blocks private internal IPs) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 531.89 m 551.28 531.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 517.89 Td (Vercel build fails at root) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 517.89 Td (Vercel framework was set to Vite instead of Other) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 521.89 Td (Use public HTTPS domain; SSRF protection blocks local IPs) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 517.89 m 559.28 517.89 l S
-0.700 0.150 0.150 rg
-BT /F2 7.2 Tf 44.00 503.89 Td (Screenshot Ctrl+V not working) Tj ET
-0.250 0.300 0.350 rg
-BT /F1 7.2 Tf 196.00 503.89 Td (Browser permission denied for clipboard write) Tj ET
+BT /F1 6.8 Tf 391.00 517.89 Td (Set Framework: Other and Root Directory: ./ in Vercel settings) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 513.89 m 551.28 513.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 499.89 Td (Function maxDuration error) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 499.89 Td (Free Vercel Hobby plan limit exceeded \(>10s\)) Tj ET
 0.100 0.450 0.200 rg
-BT /F1 7.2 Tf 366.00 503.89 Td (Click 'Download screenshot \(PNG\)' button to save directly) Tj ET
-0.900 0.920 0.950 RG
-0.40 w 36.00 499.89 m 559.28 499.89 l S
-0.8 0.8 0.8 RG
-0.5 w 36.00 33.00 m 559.28 33.00 l S
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 36.00 22.00 Td (MTF / CDR Toolkit - Visual Illustrated User Manual (English)) Tj ET
-BT /F1 7.5 Tf 0.5 0.55 0.6 rg 511.28 22.00 Td (Page 4 of 4) Tj ET
+BT /F1 6.8 Tf 391.00 499.89 Td (Leave function configuration at default \(Hobby plan auto-executes\)) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 495.89 m 551.28 495.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 481.89 Td (Screenshot Ctrl+V disabled) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 481.89 Td (Browser permission blocked writing image to clipboard) Tj ET
+0.100 0.450 0.200 rg
+BT /F1 6.8 Tf 391.00 481.89 Td (Click 'Download screenshot \(PNG\)' button to save directly to disk) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 477.89 m 551.28 477.89 l S
+0.750 0.150 0.150 rg
+BT /F2 6.8 Tf 46.00 463.89 Td (Login session expired) Tj ET
+0.250 0.300 0.380 rg
+BT /F1 6.8 Tf 211.00 463.89 Td (12-hour session timeout reached \(SESSION_MAX_AGE\)) Tj ET
+0.100 0.450 0.200 rg
+BT /F1 6.8 Tf 391.00 463.89 Td (Re-enter admin credentials on official Waanee AI login screen) Tj ET
+0.900 0.920 0.960 RG
+0.40 w 44.00 459.89 m 551.28 459.89 l S
+0.82 0.85 0.9 RG
+0.6 w 36.00 30.00 m 559.28 30.00 l S
+BT /F1 7.2 Tf 0.45 0.5 0.6 rg 36.00 20.00 Td (Waanee AI - MTF CDR Toolkit Suite (v2.0) | Production Operations & User Manual) Tj ET
+BT /F2 7.2 Tf 0.996 0.004 0.408 rg 504.28 20.00 Td (Page 8 of 8) Tj ET
 
 endstream
 endobj
 xref
-0 13
+0 21
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
-0000000140 00000 n 
-0000000237 00000 n 
-0000000339 00000 n 
-0000000481 00000 n 
-0000008469 00000 n 
-0000008611 00000 n 
-0000016070 00000 n 
-0000016213 00000 n 
-0000024386 00000 n 
-0000024530 00000 n 
+0000000168 00000 n 
+0000000265 00000 n 
+0000000367 00000 n 
+0000000509 00000 n 
+0000007204 00000 n 
+0000007346 00000 n 
+0000014275 00000 n 
+0000014418 00000 n 
+0000021151 00000 n 
+0000021295 00000 n 
+0000027371 00000 n 
+0000027515 00000 n 
+0000032750 00000 n 
+0000032894 00000 n 
+0000037923 00000 n 
+0000038067 00000 n 
+0000043071 00000 n 
+0000043215 00000 n 
 trailer
-<< /Size 13 /Root 1 0 R >>
+<< /Size 21 /Root 1 0 R >>
 startxref
-29146
+49075
 %%EOF
